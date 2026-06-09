@@ -83,17 +83,23 @@ select {
     margin-bottom: 25px;
 }
 
-/* LISTAS */
+/* LISTAS CORRIGIDAS */
 .lista-modalidades {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 12px;
     flex-wrap: nowrap;
-    width: 100%;
-    /* Adicionado overflow e padding para garantir rolagem em unidades com muitas modalidades (ex: Goiana) */
+    
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    
     overflow-x: auto;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
     -ms-overflow-style: none;
     scrollbar-width: thin; 
 }
@@ -171,8 +177,7 @@ select {
 /* MOBILE */
 @media(max-width: 600px) {
     .lista-modalidades {
-        justify-content: flex-start;
-        scrollbar-width: none; /* Oculta a barra nativa no celular para manter o visual limpo */
+        scrollbar-width: none; 
     }
 
     .lista-modalidades::-webkit-scrollbar {
@@ -218,7 +223,7 @@ select {
             <option value="arcoverde">SESC - PE ARCOVERDE</option>
             <option value="belo-jardim">SESC - PE BELO JARDIM</option>
             <option value="caruaru">SESC - PE CARUARU</option>
-            <option value="casa-amarela">SESC - PE CASA AMARELA</option>
+            <option value="casa-amarela" selected>SESC - PE CASA AMARELA</option>
             <option value="triunfo">SESC - PE CTL TRIUNFO</option>
             <option value="floresta">SESC - PE FLORESTA</option>
             <option value="garanhuns">SESC - PE GARANHUNS</option>
@@ -231,7 +236,7 @@ select {
             <option value="petrolina">SESC - PE PETROLINA</option>
             <option value="piedade">SESC - PE PIEDADE</option>
             <option value="santa-rita">SESC - PE SANTA RITA</option>
-            <option value="santo-amaro" selected>SESC - PE SANTO AMARO</option>
+            <option value="santo-amaro">SESC - PE SANTO AMARO</option>
             <option value="serra-talhada">SESC - PE SERRA TALHADA</option>
         </select>
     </div>
@@ -285,7 +290,7 @@ const bancoUnidades = {
     "serra-talhada": { nome: "Sesc Serra Talhada", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] }
 };
 
-// 3. Estrutura do Aviso (Mantida por segurança caso alguma unidade futura não tenha esportes cadastrados)
+// 3. Estrutura do Aviso
 const htmlAviso = `
     <div id="bloco-aviso">
         <img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/Captura-de-tela-2026-05-11-102031.png">
