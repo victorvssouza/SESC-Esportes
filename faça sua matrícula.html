@@ -1,546 +1,375 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faça sua matrícula</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* BOX PRINCIPAL */
-
-        .matricula-box {
-            width: 100%;
-            background: #fab700;
-            padding: 35px 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .conteudo {
-            width: 100%;
-            max-width: 420px;
-            text-align: center;
-        }
-
-        .conteudo h1 {
-            font-size: 34px;
-            font-weight: 800;
-            color: #000;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .conteudo h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 5px;
-        }
-
-        .subtexto {
-            font-size: 14px;
-            color: #8a6a00;
-            margin-bottom: 24px;
-        }
-
-        /* BOTÕES */
-
-        .botoes {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .botao {
-            min-width: 120px;
-            height: 48px;
-            border: none;
-            border-radius: 50px;
-            background: #0c4ca3;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: .3s;
-            box-shadow: 0 8px 20px rgba(12, 76, 163, .25);
-        }
-
-        .botao:hover {
-            transform: translateY(-3px);
-            opacity: .95;
-        }
-
-        /* MODAL */
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, .65);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .modal-card {
-            background: #0c4ca3;
-            color: white;
-            padding: 40px;
-            border-radius: 28px;
-            max-width: 850px;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
-            animation: subir .25s ease;
-        }
-
-        @keyframes subir {
-
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 18px;
-            right: 22px;
-            font-size: 32px;
-            cursor: pointer;
-        }
-
-        .modal-card p {
-            font-size: 17px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        /* BOTÃO AMARELO */
-
-        .btn-link-amarelo,
-        .btn-link-amarelo:link,
-        .btn-link-amarelo:visited {
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #f8be00;
-            color: #0c4ca3 !important;
-
-            padding: 14px 28px;
-
-            border-radius: 50px;
-
-            font-weight: 800;
-
-            text-decoration: none !important;
-
-            margin: 10px 0 20px;
-
-            transition: .3s;
-
-        }
-
-        .btn-link-amarelo:hover {
-
-            background: #ffd53d;
-
-        }
-
-        /* MODAL SIM */
-
-        .titulo-modal-sim {
-
-            font-size: 24px;
-
-            margin-bottom: 30px;
-
-            line-height: 1.4;
-
-            font-weight: 700;
-
-        }
-
-        .label-select {
-
-            display: block;
-
-            font-weight: 700;
-
-            margin-bottom: 14px;
-
-            font-size: 17px;
-
-        }
-
-        .form-row {
-
-            display: flex;
-
-            gap: 18px;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-        }
-
-        .select-unidade {
-
-            flex: 1;
-
-            min-width: 260px;
-
-            padding: 16px 55px 16px 22px;
-
-            border-radius: 50px;
-
-            border: none;
-
-            font-size: 16px;
-
-            outline: none;
-
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-
-            background-color: white;
-
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-            background-repeat: no-repeat;
-
-            background-position: right 20px center;
-
-            background-size: 20px;
-
-            cursor: pointer;
-
-        }
-
-        .btn-inscrever,
-        .btn-inscrever:link,
-        .btn-inscrever:visited {
-
-            background: #f8be00;
-
-            color: #0c4ca3 !important;
-
-            padding: 12px 35px;
-
-            border-radius: 60px;
-
-            font-weight: 700;
-
-            font-size: 20px;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 40px;
-
-            text-decoration: none !important;
-
-            transition: .3s;
-
-        }
-
-        .btn-inscrever:hover {
-
-            background: #ffd53d;
-
-            transform: translateY(-2px);
-
-        }
-
-        .seta-botao {
-
-            font-size: 24px;
-
-            line-height: 1;
-
-        }
-
-        /* RESPONSIVO */
-
-        @media(max-width:768px) {
-
-            .form-row {
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-            }
-
-            .select-unidade {
-
-                width: 100%;
-
-                min-width: auto;
-
-            }
-
-            .btn-inscrever {
-
-                width: 100%;
-
-                justify-content: center;
-
-                gap: 20px;
-
-            }
-
-        }
-
-        @media(max-width:480px) {
-
-            .conteudo h1 {
-
-                font-size: 24px;
-
-            }
-
-            .modal-card {
-
-                padding: 26px 18px;
-
-            }
-
-        }
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faça sua matrícula</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* BOX PRINCIPAL */
+    .matricula-box {
+      width: 100%;
+      background: #fab700;
+      padding: 35px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .conteudo {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .conteudo h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #000;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .conteudo h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 5px;
+    }
+
+    .subtexto {
+      font-size: 14px;
+      color: #8a6a00;
+      margin-bottom: 24px;
+    }
+
+    /* BOTÕES */
+    .botoes {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .botao {
+      min-width: 120px;
+      height: 48px;
+      border: none;
+      border-radius: 50px;
+      background: #0c4ca3;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .3s;
+      box-shadow: 0 8px 20px rgba(12, 76, 163, .25);
+    }
+
+    .botao:hover {
+      transform: translateY(-3px);
+      opacity: .95;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .65);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal-card {
+      background: #0c4ca3;
+      color: white;
+      padding: 40px;
+      border-radius: 28px;
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+      animation: subir .25s ease;
+    }
+
+    @keyframes subir {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    .modal-card p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    /* BOTÃO AMARELO */
+    .btn-link-amarelo,
+    .btn-link-amarelo:link,
+    .btn-link-amarelo:visited {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8be00;
+      color: #0c4ca3 !important;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 800;
+      text-decoration: none !important;
+      margin: 10px 0 20px;
+      transition: .3s;
+    }
+
+    .btn-link-amarelo:hover {
+      background: #ffd53d;
+    }
+
+    /* MODAL SIM */
+    .titulo-modal-sim {
+      font-size: 24px;
+      margin-bottom: 30px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .label-select {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 14px;
+      font-size: 17px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .select-unidade {
+      flex: 1;
+      min-width: 260px;
+      padding: 16px 55px 16px 22px;
+      border-radius: 50px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: white;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+      background-size: 20px;
+      cursor: pointer;
+    }
+
+    .btn-inscrever,
+    .btn-inscrever:link,
+    .btn-inscrever:visited {
+      background: #f8be00;
+      color: #0c4ca3 !important;
+      padding: 12px 35px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      text-decoration: none !important;
+      transition: .3s;
+    }
+
+    .btn-inscrever:hover {
+      background: #ffd53d;
+      transform: translateY(-2px);
+    }
+
+    .seta-botao {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .btn-desabilitado {
+      opacity: 0.5;
+      pointer-events: none;
+      filter: grayscale(100%);
+    }
+
+    /* RESPONSIVO */
+    @media(max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .select-unidade {
+        width: 100%;
+        min-width: auto;
+      }
+      .btn-inscrever {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .conteudo h1 {
+        font-size: 24px;
+      }
+      .modal-card {
+        padding: 26px 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <section class="matricula-box">
-
-        <div class="conteudo">
-
-            <h1>Faça sua matrícula!</h1>
-
-            <h2>Já possui a Credencial Sesc?</h2>
-
-            <p class="subtexto">
-
-                Escolha uma opção:
-
-            </p>
-
-            <div class="botoes">
-
-                <button class="botao" onclick="abrirModal('modalSim')">
-
-                    Sim
-
-                </button>
-
-                <button class="botao" onclick="abrirModal('modalNao')">
-
-                    Não
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- MODAL NÃO -->
-
-    <div id="modalNao" class="modal-overlay">
-
-        <div class="modal-card">
-
-            <span class="close-btn" onclick="fecharModal('modalNao')">
-
-                &times;
-
-            </span>
-
-            <p>
-
-                A <strong>Credencial Sesc</strong>
-                é o seu "passaporte"
-                para participar das modalidades
-                esportivas oferecidas.
-
-            </p>
-
-            <p>
-
-                <strong>Gratuita</strong>
-                na versão digital,
-                ela é essencial
-                para realizar sua inscrição.
-
-            </p>
-
-            <a href="https://www.sescpe.org.br/tire-sua-carteira/" target="_blank" class="btn-link-amarelo">
-
-                Faça sua credencial →
-
-            </a>
-
-            <p style="font-size:13px;font-weight:700;opacity:.8;">
-
-                Após finalizar sua credencial,
-                retorne e clique na opção "Sim".
-
-            </p>
-
-        </div>
-
+  <section class="matricula-box">
+    <div class="conteudo">
+      <h1>Faça sua matrícula!</h1>
+      <h2>Já possui a Credencial Sesc?</h2>
+      <p class="subtexto">Escolha uma opção:</p>
+      <div class="botoes">
+        <button class="botao" onclick="abrirModal('modalSim')">Sim</button>
+        <button class="botao" onclick="abrirModal('modalNao')">Não</button>
+      </div>
     </div>
+  </section>
 
-    <!-- MODAL SIM -->
-
-    <div id="modalSim" class="modal-overlay">
-
-        <div class="modal-card">
-
-            <span class="close-btn" onclick="fecharModal('modalSim')">
-
-                &times;
-
-            </span>
-
-            <h3 class="titulo-modal-sim">
-
-                Selecione sua unidade para ser redirecionado ao site de inscrição
-
-            </h3>
-
-            <label class="label-select">
-
-                Selecione a sua Unidade Sesc:
-
-            </label>
-
-            <div class="form-row">
-
-                <select class="select-unidade" id="selectUnidade" onchange="trocarLink()">
-
-                    <option value="santoamaro">
-
-                        SESC - PE SANTO AMARO
-
-                    </option>
-
-                    <option value="bodoco">
-
-                        SESC - PE LER BODOCÓ
-
-                    </option>
-
-                </select>
-
-                <a id="botaoInscricao"
-                    href="https://vendas.online.sistemapacto.com.br/loja?un=3&k=34ff1df5da3616856532aa015b4c9a1f"
-                    target="_blank" class="btn-inscrever">
-
-                    Inscreva-se
-
-                    <span class="seta-botao">
-
-                        →
-
-                    </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
+  <div id="modalNao" class="modal-overlay">
+    <div class="modal-card">
+      <span class="close-btn" onclick="fecharModal('modalNao')" aria-label="Fechar">&times;</span>
+      <p>
+        A <strong>Credencial Sesc</strong> é o seu "passaporte" para participar das modalidades esportivas oferecidas.
+      </p>
+      <p>
+        <strong>Gratuita</strong> na versão digital, ela é essencial para realizar sua inscrição.
+      </p>
+      <a href="https://www.sescpe.org.br/tire-sua-carteira/" target="_blank" rel="noopener noreferrer" class="btn-link-amarelo">
+        Faça sua credencial →
+      </a>
+      <p style="font-size: 13px; font-weight: 700; opacity: .8;">
+        Após finalizar sua credencial, retorne e clique na opção "Sim".
+      </p>
     </div>
+  </div>
 
-    <script>
+  <div id="modalSim" class="modal-overlay">
+    <div class="modal-card">
+      <span class="close-btn" onclick="fecharModal('modalSim')" aria-label="Fechar">&times;</span>
+      <h3 class="titulo-modal-sim">
+        Selecione sua unidade para ser redirecionado ao site de inscrição
+      </h3>
+      <label class="label-select" for="selectUnidade">
+        Selecione a sua Unidade Sesc:
+      </label>
+      <div class="form-row">
+        <select class="select-unidade" id="selectUnidade" onchange="trocarLink()">
+          <option value="" disabled selected>Escolha uma unidade...</option>
+        </select>
+        <a id="botaoInscricao" href="#" target="_blank" rel="noopener noreferrer" class="btn-inscrever btn-desabilitado">
+          Inscreva-se
+          <span class="seta-botao">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-        function abrirModal(id) {
+  <script>
+    // Lista de unidades em ordem alfabética para facilitar a busca do usuário
+    const unidadesSesc = [
+      { id: "araripina", nome: "SESC - PE ARARIPINA", link: "https://vendas.online.sistemapacto.com.br/loja?un=8&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "arcoverde", nome: "SESC - PE ARCOVERDE", link: "https://vendas.online.sistemapacto.com.br/loja?un=6&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "belojardim", nome: "SESC - PE BELO JARDIM", link: "https://vendas.online.sistemapacto.com.br/loja?un=10&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "bodoco", nome: "SESC - PE LER BODOCÓ", link: "https://vendas.online.sistemapacto.com.br/loja?un=11&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "buique", nome: "SESC - PE BUÍQUE", link: "https://vendas.online.sistemapacto.com.br/loja?un=9&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "caruaru", nome: "SESC - PE CARUARU", link: "https://vendas.online.sistemapacto.com.br/loja?un=15&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "casaamarela", nome: "SESC - PE CASA AMARELA", link: "https://vendas.online.sistemapacto.com.br/loja?un=12&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "floresta", nome: "SESC - PE FLORESTA", link: "https://vendas.online.sistemapacto.com.br/loja?un=18&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "garanhuns", nome: "SESC - PE GARANHUNS", link: "https://vendas.online.sistemapacto.com.br/loja?un=5&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "goiana", nome: "SESC - PE GOIANA", link: "https://vendas.online.sistemapacto.com.br/loja?un=1&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "petrolina", nome: "SESC - PE PETROLINA", link: "https://vendas.online.sistemapacto.com.br/loja?un=7&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "piedade", nome: "SESC - PE PIEDADE", link: "https://vendas.online.sistemapacto.com.br/loja?un=2&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "santarita", nome: "SESC - PE SANTA RITA", link: "https://vendas.online.sistemapacto.com.br/loja?un=13&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "santoamaro", nome: "SESC - PE SANTO AMARO", link: "https://vendas.online.sistemapacto.com.br/loja?un=3&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "saolourencodamata", nome: "SESC - PE SÃO LOURENÇO DA MATA", link: "https://vendas.online.sistemapacto.com.br/loja?un=14&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "serratalhada", nome: "SESC - PE SERRA TALHADA", link: "https://vendas.online.sistemapacto.com.br/loja?un=4&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "surubim", nome: "SESC - PE SURUBIM", link: "https://vendas.online.sistemapacto.com.br/loja?un=16&k=34ff1df5da3616856532aa015b4c9a1f" },
+      { id: "triunfo", nome: "SESC - PE TRIUNFO", link: "https://vendas.online.sistemapacto.com.br/loja?un=17&k=34ff1df5da3616856532aa015b4c9a1f" }
+    ];
 
-            document
-                .getElementById(id)
-                .style.display = "flex";
+    // PREENCHIMENTO IMEDIATO DA LISTA (Sem depender do onload)
+const selectElement = document.getElementById("selectUnidade");
+if (selectElement) {
+  unidadesSesc.forEach(function(unidade) {
+    const option = document.createElement("option");
+    option.value = unidade.id;
+    option.textContent = unidade.nome;
+    selectElement.appendChild(option);
+  });
+}
 
-        }
+function abrirModal(id) {
+  document.getElementById(id).style.display = "flex";
+}
 
-        function fecharModal(id) {
+function fecharModal(id) {
+  document.getElementById(id).style.display = "none";
 
-            document
-                .getElementById(id)
-                .style.display = "none";
+  if (id === "modalSim") {
+    document.getElementById("selectUnidade").selectedIndex = 0;
+    document.getElementById("botaoInscricao").classList.add("btn-desabilitado");
+    document.getElementById("botaoInscricao").href = "#";
+  }
+}
 
-        }
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal-overlay')) {
+    event.target.style.display = "none";
+    fecharModal('modalSim');
+  }
+}
 
-        window.onclick = function (event) {
+function trocarLink() {
+  const unidadeSelecionada = document.getElementById("selectUnidade").value;
+  const botao = document.getElementById("botaoInscricao");
 
-            if (
-                event.target.classList.contains(
-                    'modal-overlay'
-                )
-            ) {
+  const unidadeEncontrada = unidadesSesc.find(function(u) {
+    return u.id === unidadeSelecionada;
+  });
 
-                event.target.style.display = "none";
-
-            }
-
-        }
-
-        function trocarLink() {
-
-            const unidade =
-                document.getElementById(
-                    "selectUnidade"
-                ).value;
-
-            const botao =
-                document.getElementById(
-                    "botaoInscricao"
-                );
-
-            if (unidade === "santoamaro") {
-
-                botao.href =
-                    "https://vendas.online.sistemapacto.com.br/loja?un=3&k=34ff1df5da3616856532aa015b4c9a1f";
-
-            }
-
-            if (unidade === "bodoco") {
-
-                botao.href =
-                    "https://vendas.online.sistemapacto.com.br/loja?un=11&k=34ff1df5da3616856532aa015b4c9a1f";
-
-            }
-
-        }
-
-    </script>
-
+  if (unidadeEncontrada) {
+    botao.href = unidadeEncontrada.link;
+    botao.classList.remove("btn-desabilitado");
+  }
+}
+  </script>
 </body>
-
 </html>
