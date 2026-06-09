@@ -72,7 +72,6 @@ select {
     overflow: hidden;
 }
 
-/* BLOCO DINÂMICO (Substitui os IDs antigos de Bodocó e Santo Amaro) */
 #bloco-dinamico {
     width: 100%;
     text-align: center;
@@ -92,6 +91,20 @@ select {
     gap: 12px;
     flex-wrap: nowrap;
     width: 100%;
+    /* Adicionado overflow e padding para garantir rolagem em unidades com muitas modalidades (ex: Goiana) */
+    overflow-x: auto;
+    padding-bottom: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: thin; 
+}
+
+.lista-modalidades::-webkit-scrollbar {
+    height: 6px;
+}
+
+.lista-modalidades::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
 }
 
 .item {
@@ -106,7 +119,7 @@ select {
     font-weight: 700;
 }
 
-/* ÍCONES E IMAGENS (Unificados) */
+/* ÍCONES E IMAGENS */
 #bloco-dinamico .item i {
     font-size: 28px;
     width: 30px;
@@ -134,7 +147,7 @@ select {
 
 /* AVISO */
 #bloco-aviso {
-    display: flex; /* Alterado de none para flex para injeção dinâmica */
+    display: flex;
     align-items: center;
     gap: 30px;
     width: 100%;
@@ -158,11 +171,8 @@ select {
 /* MOBILE */
 @media(max-width: 600px) {
     .lista-modalidades {
-        overflow-x: auto;
         justify-content: flex-start;
-        padding-bottom: 10px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+        scrollbar-width: none; /* Oculta a barra nativa no celular para manter o visual limpo */
     }
 
     .lista-modalidades::-webkit-scrollbar {
@@ -233,31 +243,49 @@ select {
 </div>
 
 <script>
-// 1. Dicionário Central de Modalidades (HTML/Visuais)
+// 1. Dicionário Central de Modalidades
 const bancoModalidades = {
-    futsal_icon: { nome: "Futsal", icone: '<i class="fa-regular fa-futbol"></i>' },
-    futsal_img: { nome: "Futebol de Salão", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/sports_and_outdoors_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">' },
-    voleibol: { nome: "Voleibol", icone: '<i class="fa-solid fa-volleyball"></i>' },
-    musculacao: { nome: "Musculação", icone: '<i class="fa-solid fa-dumbbell"></i>' },
+    alongamento: { nome: "Alongamento", icone: '<i class="fa-solid fa-person-stretching"></i>' },
+    beach_tennis: { nome: "Beach Tennis", icone: '<i class="fa-solid fa-table-tennis-paddle-ball"></i>' },
+    corrida: { nome: "Corrida Orientada", icone: '<i class="fa-solid fa-stopwatch"></i>' },
+    funcional_kids: { nome: "Funcional Kids", icone: '<i class="fa-solid fa-child-reaching"></i>' },
+    futebol_campo: { nome: "Futebol de Campo", icone: '<i class="fa-regular fa-futbol"></i>' },
+    futebol_society: { nome: "Futebol Society", icone: '<i class="fa-solid fa-futbol"></i>' },
+    futsal: { nome: "Futsal", icone: '<i class="fa-regular fa-futbol"></i>' },
+    ginastica: { nome: "Ginástica Multifuncional", icone: '<i class="fa-solid fa-person-running"></i>' },
     handebol: { nome: "Handebol", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/sports_handball_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">' },
+    hidroginastica: { nome: "Hidroginástica", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/icons8-boia-50.png">' },
+    judo: { nome: "Judô", icone: '<i class="fa-solid fa-user-ninja"></i>' },
+    movemente: { nome: "Movemente 60+", icone: '<i class="fa-solid fa-heart-pulse"></i>' },
+    musculacao: { nome: "Musculação", icone: '<i class="fa-solid fa-dumbbell"></i>' },
     natacao: { nome: "Natação", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/pool_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">' },
-    hidroginastica: { nome: "Hidroginástica", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/icons8-boia-50.png">' }
+    pilates: { nome: "Pilates de Solo", icone: '<i class="fa-solid fa-spa"></i>' },
+    voleibol: { nome: "Voleibol", icone: '<i class="fa-solid fa-volleyball"></i>' }
 };
 
-// 2. Dicionário de Unidades que possuem modalidades
-// Nota: Unidades que não estão aqui automaticamente exibirão o aviso.
+// 2. Dicionário de Unidades
 const bancoUnidades = {
-    "santo-amaro": { 
-        nome: "Sesc Santo Amaro", 
-        modalidades: ["futsal_icon", "voleibol", "musculacao"] 
-    },
-    "bodoco": { 
-        nome: "Sesc Ler Bodocó", 
-        modalidades: ["futsal_img", "handebol", "natacao", "hidroginastica"] 
-    }
+    "arcoverde": { nome: "Sesc Arcoverde", modalidades: ["alongamento", "futsal", "ginastica", "hidroginastica", "musculacao", "natacao", "pilates"] },
+    "belo-jardim": { nome: "Sesc Belo Jardim", modalidades: ["futsal", "musculacao", "natacao"] },
+    "caruaru": { nome: "Sesc Caruaru", modalidades: ["futsal", "futebol_society", "hidroginastica", "musculacao", "natacao"] },
+    "casa-amarela": { nome: "Sesc Casa Amarela", modalidades: ["ginastica", "hidroginastica", "movemente", "natacao", "pilates"] },
+    "triunfo": { nome: "Sesc CTL Triunfo", modalidades: ["natacao"] },
+    "floresta": { nome: "Sesc Floresta", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
+    "garanhuns": { nome: "Sesc Garanhuns", modalidades: ["futsal", "hidroginastica", "movemente", "musculacao", "natacao", "voleibol"] },
+    "goiana": { nome: "Sesc Goiana", modalidades: ["beach_tennis", "corrida", "funcional_kids", "futebol_campo", "futebol_society", "futsal", "ginastica", "hidroginastica", "judo", "musculacao", "natacao", "voleibol"] },
+    "araripina": { nome: "Sesc Ler Araripina", modalidades: ["futsal", "futebol_society", "ginastica", "hidroginastica", "musculacao", "natacao"] },
+    "bodoco": { nome: "Sesc Ler Bodocó", modalidades: ["futsal", "handebol", "hidroginastica", "natacao"] },
+    "buique": { nome: "Sesc Ler Buíque", modalidades: ["futsal", "hidroginastica", "natacao"] },
+    "sao-lourenco": { nome: "Sesc Ler São Lourenço", modalidades: ["ginastica", "movemente", "natacao"] },
+    "surubim": { nome: "Sesc Ler Surubim", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
+    "petrolina": { nome: "Sesc Petrolina", modalidades: ["funcional_kids", "futsal", "ginastica", "hidroginastica", "movemente", "musculacao", "natacao"] },
+    "piedade": { nome: "Sesc Piedade", modalidades: ["alongamento", "beach_tennis", "funcional_kids", "futebol_society", "hidroginastica", "judo", "movemente", "musculacao", "natacao", "pilates"] },
+    "santa-rita": { nome: "Sesc Santa Rita", modalidades: ["alongamento", "ginastica", "pilates"] },
+    "santo-amaro": { nome: "Sesc Santo Amaro", modalidades: ["futsal", "musculacao", "voleibol"] },
+    "serra-talhada": { nome: "Sesc Serra Talhada", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] }
 };
 
-// 3. Estrutura fixa do HTML de Aviso
+// 3. Estrutura do Aviso (Mantida por segurança caso alguma unidade futura não tenha esportes cadastrados)
 const htmlAviso = `
     <div id="bloco-aviso">
         <img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/Captura-de-tela-2026-05-11-102031.png">
@@ -277,10 +305,8 @@ function renderizarConteudo() {
     const unidadeSelecionadaId = select.value;
     const dadosUnidade = bancoUnidades[unidadeSelecionadaId];
 
-    // Limpa a tela
     containerDinamico.innerHTML = "";
 
-    // Checa se a unidade existe no banco e se possui itens no array
     if (dadosUnidade && dadosUnidade.modalidades.length > 0) {
         
         let htmlModalidades = `
@@ -299,26 +325,26 @@ function renderizarConteudo() {
                 </div>
             `;
 
-            // Adiciona o traço divisor, exceto no último item
             if (index < dadosUnidade.modalidades.length - 1) {
                 htmlModalidades += `<div class="divisor"></div>`;
             }
         });
 
-        htmlModalidades += `</div></div>`; // Fecha .lista-modalidades e #bloco-dinamico
-        
-        // Injeta na tela
+        htmlModalidades += `</div></div>`;
         containerDinamico.innerHTML = htmlModalidades;
 
     } else {
-        // Renderiza o aviso para qualquer unidade sem modalidades ativas
         containerDinamico.innerHTML = htmlAviso;
     }
+    
+    // Força o scroll voltar para o começo quando trocar de unidade
+    const lista = document.querySelector('.lista-modalidades');
+    if(lista) lista.scrollLeft = 0;
 }
 
 // 5. Iniciar
 select.addEventListener("change", renderizarConteudo);
-renderizarConteudo(); // Carrega o estado inicial
+renderizarConteudo();
 
 </script>
 
