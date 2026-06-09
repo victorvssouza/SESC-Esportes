@@ -6,226 +6,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modalidades SESC</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container{
-max-width:720px;
-margin:40px auto;
-padding:0 20px;
+.container {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.titulo{
-text-align:center;
-font-size:24px;
-font-weight:800;
-margin-bottom:30px;
+.titulo {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 30px;
 }
 
-.select-box{
-margin-bottom:20px;
-position:relative;
+.select-box {
+    margin-bottom: 20px;
+    position: relative;
 }
 
-.select-box::after{
-content:"\f078";
-font-family:"Font Awesome 6 Free";
-font-weight:900;
-position:absolute;
-right:25px;
-top:50%;
-transform:translateY(-50%);
-pointer-events:none;
+.select-box::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
-select{
-width:100%;
-height:60px;
-border:1px solid #e0e0e0;
-border-radius:50px;
-padding:0 25px;
-font-size:16px;
-background:#fff;
-box-shadow:0 4px 15px rgba(0,0,0,.05);
-appearance:none;
-outline:none;
-cursor:pointer;
+select {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    padding: 0 25px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+    appearance: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.card{
-width:100%;
-background:#fff;
-border-radius:20px;
-padding:30px 25px;
-border:2px solid #2b579a;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:220px;
-overflow:hidden;
+.card {
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 25px;
+    border: 2px solid #2b579a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+    overflow: hidden;
 }
 
-#bloco-modalidades,
-#bloco-bodoco{
-width:100%;
-text-align:center;
+/* BLOCO DINÂMICO (Substitui os IDs antigos de Bodocó e Santo Amaro) */
+#bloco-dinamico {
+    width: 100%;
+    text-align: center;
 }
 
-#bloco-modalidades h2,
-#bloco-bodoco h2{
-color:#0b4aa2;
-font-size:18px;
-margin-bottom:25px;
+#bloco-dinamico h2 {
+    color: #0b4aa2;
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
 /* LISTAS */
-
-.lista-modalidades{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:12px;
-flex-wrap:nowrap;
-width:100%;
+.lista-modalidades {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
-.item{
-display:flex;
-align-items:center;
-gap:8px;
-color:#2b579a;
-white-space:nowrap;
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2b579a;
+    white-space: nowrap;
 }
 
-.item span{
-font-weight:700;
+.item span {
+    font-weight: 700;
 }
 
-/* SANTO AMARO */
-
-#bloco-modalidades .item i{
-font-size:28px;
-width:30px;
-text-align:center;
+/* ÍCONES E IMAGENS (Unificados) */
+#bloco-dinamico .item i {
+    font-size: 28px;
+    width: 30px;
+    text-align: center;
 }
 
-#bloco-modalidades .item span{
-font-size:17px;
+#bloco-dinamico .item span {
+    font-size: 17px;
 }
 
-/* BODOCÓ */
-
-#bloco-bodoco .item span{
-font-size:17px;
+#bloco-dinamico .item img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: brightness(0) saturate(100%) invert(29%) sepia(42%) saturate(1192%) hue-rotate(189deg) brightness(92%) contrast(91%);
 }
 
-#bloco-bodoco .item img{
-
-width:28px;
-height:28px;
-object-fit:contain;
-flex-shrink:0;
-
-filter:
-brightness(0)
-saturate(100%)
-invert(29%)
-sepia(42%)
-saturate(1192%)
-hue-rotate(189deg)
-brightness(92%)
-contrast(91%);
-
-}
-
-.divisor{
-width:1px;
-height:26px;
-background:#ccc;
-flex-shrink:0;
+.divisor {
+    width: 1px;
+    height: 26px;
+    background: #ccc;
+    flex-shrink: 0;
 }
 
 /* AVISO */
-
-#bloco-aviso{
-display:none;
-align-items:center;
-gap:30px;
-width:100%;
+#bloco-aviso {
+    display: flex; /* Alterado de none para flex para injeção dinâmica */
+    align-items: center;
+    gap: 30px;
+    width: 100%;
 }
 
-#bloco-aviso img{
-width:120px;
+#bloco-aviso img {
+    width: 120px;
 }
 
-.aviso-texto h2{
-font-size:20px;
-font-weight:800;
-margin-bottom:12px;
+.aviso-texto h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
 }
 
-.aviso-texto p{
-margin-bottom:12px;
-line-height:1.4;
+.aviso-texto p {
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
 /* MOBILE */
+@media(max-width: 600px) {
+    .lista-modalidades {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 
-@media(max-width:600px){
+    .lista-modalidades::-webkit-scrollbar {
+        display: none;
+    }
 
-.lista-modalidades{
+    .divisor {
+        display: none;
+    }
 
-overflow-x:auto;
-justify-content:flex-start;
+    #bloco-aviso {
+        flex-direction: column;
+        text-align: center;
+    }
 
-padding-bottom:10px;
+    #bloco-dinamico .item i {
+        font-size: 26px;
+    }
 
--ms-overflow-style:none;
-scrollbar-width:none;
+    #bloco-dinamico .item span {
+        font-size: 16px;
+    }
 
+    #bloco-dinamico .item img {
+        width: 26px;
+        height: 26px;
+    }
 }
-
-.lista-modalidades::-webkit-scrollbar{
-display:none;
-}
-
-.divisor{
-display:none;
-}
-
-#bloco-aviso{
-flex-direction:column;
-text-align:center;
-}
-
-#bloco-modalidades .item i{
-font-size:26px;
-}
-
-#bloco-modalidades .item span{
-font-size:16px;
-}
-
-#bloco-bodoco .item span{
-font-size:14px;
-}
-
-#bloco-bodoco .item img{
-width:26px;
-height:26px;
-}
-
-}
-
 </style>
 
 </head>
@@ -234,190 +199,126 @@ height:26px;
 
 <div class="container">
 
-<h1 class="titulo">
-Conheça nossas opções
-</h1>
+    <h1 class="titulo">
+        Conheça nossas opções
+    </h1>
 
-<div class="select-box">
+    <div class="select-box">
+        <select id="unidadeSelect">
+            <option value="arcoverde">SESC - PE ARCOVERDE</option>
+            <option value="belo-jardim">SESC - PE BELO JARDIM</option>
+            <option value="caruaru">SESC - PE CARUARU</option>
+            <option value="casa-amarela">SESC - PE CASA AMARELA</option>
+            <option value="triunfo">SESC - PE CTL TRIUNFO</option>
+            <option value="floresta">SESC - PE FLORESTA</option>
+            <option value="garanhuns">SESC - PE GARANHUNS</option>
+            <option value="goiana">SESC - PE GOIANA</option>
+            <option value="araripina">SESC - PE LER ARARIPINA</option>
+            <option value="bodoco">SESC - PE LER BODOCÓ</option>
+            <option value="buique">SESC - PE LER BUIQUE</option>
+            <option value="sao-lourenco">SESC - PE LER SÃO LOURENÇO</option>
+            <option value="surubim">SESC - PE LER SURUBIM</option>
+            <option value="petrolina">SESC - PE PETROLINA</option>
+            <option value="piedade">SESC - PE PIEDADE</option>
+            <option value="santa-rita">SESC - PE SANTA RITA</option>
+            <option value="santo-amaro" selected>SESC - PE SANTO AMARO</option>
+            <option value="serra-talhada">SESC - PE SERRA TALHADA</option>
+        </select>
+    </div>
 
-<select id="unidadeSelect">
-
-<option value="outra">SESC - PE ARCOVERDE</option>
-<option value="outra">SESC - PE BELO JARDIM</option>
-<option value="outra">SESC - PE CARUARU</option>
-<option value="outra">SESC - PE CASA AMARELA</option>
-<option value="outra">SESC - PE CTL TRIUNFO</option>
-<option value="outra">SESC - PE FLORESTA</option>
-<option value="outra">SESC - PE GARANHUNS</option>
-<option value="outra">SESC - PE GOIANA</option>
-<option value="outra">SESC - PE LER ARARIPINA</option>
-
-<option value="bodoco">
-SESC - PE LER BODOCÓ
-</option>
-
-<option value="outra">SESC - PE LER BUIQUE</option>
-<option value="outra">SESC - PE LER SÃO LOURENÇO</option>
-<option value="outra">SESC - PE LER SURUBIM</option>
-<option value="outra">SESC - PE PETROLINA</option>
-<option value="outra">SESC - PE PIEDADE</option>
-<option value="outra">SESC - PE SANTA RITA</option>
-
-<option value="santo-amaro" selected>
-SESC - PE SANTO AMARO
-</option>
-
-<option value="outra">SESC - PE SERRA TALHADA</option>
-
-</select>
-
-</div>
-
-<div class="card">
-
-<!-- SANTO AMARO -->
-
-<div id="bloco-modalidades">
-
-<h2>
-As modalidades disponíveis no
-Sesc Santo Amaro são:
-</h2>
-
-<div class="lista-modalidades">
-
-<div class="item">
-<i class="fa-regular fa-futbol"></i>
-<span>Futsal</span>
-</div>
-
-<div class="divisor"></div>
-
-<div class="item">
-<i class="fa-solid fa-volleyball"></i>
-<span>Voleibol</span>
-</div>
-
-<div class="divisor"></div>
-
-<div class="item">
-<i class="fa-solid fa-dumbbell"></i>
-<span>Musculação</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- BODOCÓ -->
-
-<div id="bloco-bodoco" style="display:none;">
-
-<h2>
-As modalidades disponíveis no
-Sesc Ler Bodocó são:
-</h2>
-
-<div class="lista-modalidades">
-
-<div class="item">
-
-<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/sports_and_outdoors_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">
-
-<span>Futebol de Salão</span>
-
-</div>
-
-<div class="divisor"></div>
-
-<div class="item">
-
-<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/sports_handball_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">
-
-<span>Handebol</span>
-
-</div>
-
-<div class="divisor"></div>
-
-<div class="item">
-
-<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/pool_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">
-
-<span>Natação</span>
-
-</div>
-
-<div class="divisor"></div>
-
-<div class="item">
-
-<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/icons8-boia-50.png">
-
-<span>Hidroginástica</span>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- AVISO -->
-
-<div id="bloco-aviso">
-
-<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/Captura-de-tela-2026-05-11-102031.png">
-
-<div class="aviso-texto">
-
-<h2>
-Estamos ampliando as inscrições on-line das modalidades e atividades esportivas para todas as unidades.
-</h2>
-
-<p>
-Fique de olho: em junho, novas opções estarão disponíveis aqui para você!!
-</p>
-
-<p>
-Enquanto isso, procure a Central de Relacionamento do Sesc de sua preferência.
-</p>
-
-</div>
-
-</div>
-
-</div>
+    <div class="card">
+        <div id="conteudo-dinamico" style="width: 100%;"></div>
+    </div>
 
 </div>
 
 <script>
+// 1. Dicionário Central de Modalidades (HTML/Visuais)
+const bancoModalidades = {
+    futsal_icon: { nome: "Futsal", icone: '<i class="fa-regular fa-futbol"></i>' },
+    futsal_img: { nome: "Futebol de Salão", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/sports_and_outdoors_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">' },
+    voleibol: { nome: "Voleibol", icone: '<i class="fa-solid fa-volleyball"></i>' },
+    musculacao: { nome: "Musculação", icone: '<i class="fa-solid fa-dumbbell"></i>' },
+    handebol: { nome: "Handebol", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/sports_handball_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">' },
+    natacao: { nome: "Natação", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/pool_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png">' },
+    hidroginastica: { nome: "Hidroginástica", icone: '<img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/icons8-boia-50.png">' }
+};
 
-const select=document.getElementById("unidadeSelect");
-const santo=document.getElementById("bloco-modalidades");
-const aviso=document.getElementById("bloco-aviso");
-const bodoco=document.getElementById("bloco-bodoco");
+// 2. Dicionário de Unidades que possuem modalidades
+// Nota: Unidades que não estão aqui automaticamente exibirão o aviso.
+const bancoUnidades = {
+    "santo-amaro": { 
+        nome: "Sesc Santo Amaro", 
+        modalidades: ["futsal_icon", "voleibol", "musculacao"] 
+    },
+    "bodoco": { 
+        nome: "Sesc Ler Bodocó", 
+        modalidades: ["futsal_img", "handebol", "natacao", "hidroginastica"] 
+    }
+};
 
-function trocarConteudo(){
+// 3. Estrutura fixa do HTML de Aviso
+const htmlAviso = `
+    <div id="bloco-aviso">
+        <img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/Captura-de-tela-2026-05-11-102031.png">
+        <div class="aviso-texto">
+            <h2>Estamos ampliando as inscrições on-line das modalidades e atividades esportivas para todas as unidades.</h2>
+            <p>Fique de olho: em junho, novas opções estarão disponíveis aqui para você!!</p>
+            <p>Enquanto isso, procure a Central de Relacionamento do Sesc de sua preferência.</p>
+        </div>
+    </div>
+`;
 
-santo.style.display="none";
-aviso.style.display="none";
-bodoco.style.display="none";
+// 4. Lógica de Renderização
+const select = document.getElementById("unidadeSelect");
+const containerDinamico = document.getElementById("conteudo-dinamico");
 
-if(select.value==="santo-amaro"){
-santo.style.display="block";
+function renderizarConteudo() {
+    const unidadeSelecionadaId = select.value;
+    const dadosUnidade = bancoUnidades[unidadeSelecionadaId];
+
+    // Limpa a tela
+    containerDinamico.innerHTML = "";
+
+    // Checa se a unidade existe no banco e se possui itens no array
+    if (dadosUnidade && dadosUnidade.modalidades.length > 0) {
+        
+        let htmlModalidades = `
+            <div id="bloco-dinamico">
+                <h2>As modalidades disponíveis no ${dadosUnidade.nome} são:</h2>
+                <div class="lista-modalidades">
+        `;
+
+        dadosUnidade.modalidades.forEach((modKey, index) => {
+            const mod = bancoModalidades[modKey];
+            
+            htmlModalidades += `
+                <div class="item">
+                    ${mod.icone}
+                    <span>${mod.nome}</span>
+                </div>
+            `;
+
+            // Adiciona o traço divisor, exceto no último item
+            if (index < dadosUnidade.modalidades.length - 1) {
+                htmlModalidades += `<div class="divisor"></div>`;
+            }
+        });
+
+        htmlModalidades += `</div></div>`; // Fecha .lista-modalidades e #bloco-dinamico
+        
+        // Injeta na tela
+        containerDinamico.innerHTML = htmlModalidades;
+
+    } else {
+        // Renderiza o aviso para qualquer unidade sem modalidades ativas
+        containerDinamico.innerHTML = htmlAviso;
+    }
 }
-else if(select.value==="bodoco"){
-bodoco.style.display="block";
-}
-else{
-aviso.style.display="flex";
-}
 
-}
-
-select.addEventListener("change",trocarConteudo);
-
-trocarConteudo();
+// 5. Iniciar
+select.addEventListener("change", renderizarConteudo);
+renderizarConteudo(); // Carrega o estado inicial
 
 </script>
 
