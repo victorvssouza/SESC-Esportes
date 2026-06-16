@@ -1,0 +1,330 @@
+<section class="matricula-banner">
+
+  <div class="banner-content">
+
+    <!-- TEXTO -->
+    <div class="banner-text">
+
+      <h4 class="titulo-principal">
+        Para finalizar sua matrícula
+      </h4>
+
+      <h5 class="subtitulo">
+        <strong>Baixe o App Treino</strong>
+        no seu celular e faça a
+        <strong>assinatura do contrato.</strong>
+      </h5>
+
+      <p class="subtitulo">
+        Além disso, aproveite todos os benefícios que o app oferece.
+      </p>
+      
+      <p class="descricao2">
+        <strong>Importante:</strong> o pagamento via PIX e a assinatura do contrato devem ser realizados em até 30 minutos no app “Treino”. Após esse prazo, o contrato será cancelado automaticamente.
+      </p>
+
+      <!-- BOTÕES -->
+      <div class="store-buttons">
+
+        <!-- APP STORE -->
+        <a href="https://apps.apple.com/br/app/treino/id862662527"
+           target="_blank"
+           rel="noopener"
+           class="store-btn">
+
+          <svg width="22" height="26" viewBox="0 0 24 28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.5 14.5c0-3.5 2.8-5.2 3-5.3-1.6-2.4-4.2-2.7-5.1-2.7-2.2-.2-4.2 1.3-5.3 1.3-1.1 0-2.8-1.2-4.6-1.2C3.5 6.7 1 8.5 1 12.4c0 2.4.9 5 2.1 6.6 1.1 1.4 2 2.6 3.4 2.6 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.1.9 3.6.8 1.5 0 2.4-1.3 3.4-2.7.8-1 1.2-2 1.4-2.3-.1 0-2-.9-2-3z" fill="#111"/>
+            <path d="M15.3 4.2c.9-1.1 1.5-2.6 1.3-4.2-1.3.1-2.8.9-3.7 2-.8.9-1.5 2.4-1.3 3.9 1.4.1 2.8-.7 3.7-1.7z" fill="#111"/>
+          </svg>
+
+          <div>
+            <small>Baixar na</small>
+            <strong>App Store</strong>
+          </div>
+
+        </a>
+
+        <!-- GOOGLE PLAY -->
+        <a href="https://play.google.com/store/apps/details?id=com.pacto&pcampaignid=web_share"
+           target="_blank"
+           rel="noopener"
+           class="store-btn">
+
+          <svg width="22" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.18 23.76c.3.17.64.2.97.07l11.28-6.52-2.5-2.5-9.75 8.95z" fill="#EA4335"/>
+            <path d="M22.47 10.28 19.2 8.4l-2.78 2.78 2.78 2.78 3.3-1.9a1.38 1.38 0 0 0 0-1.78z" fill="#FBBC04"/>
+            <path d="M3.18.24a1.38 1.38 0 0 0-.18.68v22.16c0 .24.06.47.18.68l.08.07 12.42-12.42v-.27L3.26.17l-.08.07z" fill="#4285F4"/>
+            <path d="M15.43 17.31 3.18 23.76l.08.07c.33.19.72.22 1.07.06L17.95 16l-2.52 1.31z" fill="#34A853"/>
+          </svg>
+
+          <div>
+            <small>Disponível no</small>
+            <strong>Google Play</strong>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- IMAGEM APP -->
+
+    <img
+      class="img-app"
+      src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/Iphone_Treino_6-1.png"
+      alt="App Treino"
+    >
+
+  </div>
+
+</section>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BANNER */
+
+.matricula-banner{
+width:100%;
+overflow:hidden;
+position:relative;
+background:#fab700;
+font-family:'Montserrat',sans-serif;
+}
+
+.banner-content{
+position:relative;
+max-width:1600px;
+min-height:260px;
+margin:auto;
+display:flex;
+align-items:center;
+padding:35px 70px;
+}
+
+/* CURVA AZUL */
+
+.banner-content::after{
+content:"";
+position:absolute;
+right:-140px;
+top:-140px;
+width:720px;
+height:520px;
+background:#0f428c;
+border-radius:50%;
+z-index:1;
+}
+
+/* TEXTO */
+
+.banner-text{
+position:relative;
+z-index:5;
+max-width:760px;
+line-height:1.2;
+}
+
+.titulo-principal{
+font-size:32px;
+font-weight:800;
+color:#000;
+margin-bottom:8px;
+line-height:1.05;
+letter-spacing:-2px;
+}
+
+.subtitulo{
+font-size:24px;
+font-weight:400;
+color:#000;
+line-height:1.15;
+letter-spacing:-1px;
+margin-bottom:8px;
+}
+
+.subtitulo strong{
+font-weight:800;
+}
+
+.descricao2{
+font-size:14px;
+color:#000;
+line-height:1.3;
+margin-top:8px;
+}
+
+/* BOTÕES */
+
+.store-buttons{
+display:flex;
+gap:18px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.store-btn{
+display:flex;
+align-items:center;
+gap:12px;
+
+background:#fff;
+
+padding:14px 22px;
+
+border-radius:14px;
+
+min-width:200px;
+
+text-decoration:none !important;
+
+box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+transition:.3s;
+}
+
+.store-btn:hover{
+transform:translateY(-3px);
+}
+
+/* REMOVE SUBLINHADO */
+
+.store-btn,
+.store-btn *,
+.store-btn div,
+.store-btn strong,
+.store-btn small{
+text-decoration:none !important;
+color:inherit;
+}
+
+.store-btn small{
+display:block;
+font-size:11px;
+color:#666;
+line-height:1;
+}
+
+.store-btn strong{
+display:block;
+font-size:17px;
+font-weight:700;
+line-height:1.3;
+color:#111;
+}
+
+/* MOCKUP */
+
+.img-app{
+position:absolute;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+width:200px;
+z-index:6;
+}
+
+/* TABLET */
+
+@media(max-width:1200px){
+
+.banner-content{
+padding:50px 40px 260px;
+}
+
+.banner-content::after{
+width:620px;
+height:620px;
+right:-220px;
+top:120px;
+}
+
+.titulo-principal{
+font-size:42px;
+}
+
+.subtitulo{
+font-size:28px;
+}
+
+.img-app{
+width:260px;
+right:20px;
+top:auto;
+bottom:20px;
+transform:none;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.banner-content{
+padding:35px 20px 320px;
+}
+
+.banner-content::after{
+width:520px;
+height:520px;
+right:-260px;
+top:220px;
+}
+
+.titulo-principal{
+font-size:32px;
+}
+
+.subtitulo{
+font-size:22px;
+}
+
+.store-buttons{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.store-btn{
+min-width:190px;
+padding:12px 16px;
+}
+
+.img-app{
+width:190px;
+right:0;
+bottom:10px;
+top:auto;
+transform:none;
+}
+
+}
+
+/* MOBILE PEQUENO */
+
+@media(max-width:480px){
+
+.titulo-principal{
+font-size:26px;
+}
+
+.subtitulo{
+font-size:18px;
+}
+
+.img-app{
+width:170px;
+}
+
+}
+
+</style>
