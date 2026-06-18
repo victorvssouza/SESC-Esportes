@@ -90,7 +90,7 @@ select {
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
-    /*flex-wrap: nowrap;*/ /* Removido para permitir quebra de linha */
+    /*flex-wrap: nowrap;*/
     flex-wrap: wrap;
     justify-content: center; /* Centraliza os itens quando quebrar linha */
     
@@ -224,13 +224,14 @@ select {
 
     <div class="select-box">
         <select id="unidadeSelect">
+            <option value="todas" selected>SELECIONE SUA UNIDADE</option>
             <option value="araripina">SESC - PE ARARIPINA</option>
             <option value="arcoverde">SESC - PE ARCOVERDE</option>
             <option value="belo-jardim">SESC - PE BELO JARDIM</option>
             <option value="bodoco">SESC - PE LER BODOCÓ</option>
             <option value="buique">SESC - PE LER BUIQUE</option>
             <option value="caruaru">SESC - PE CARUARU</option>
-            <option value="casa-amarela" selected>SESC - PE CASA AMARELA</option>
+            <option value="casa-amarela">SESC - PE CASA AMARELA</option>
             <option value="floresta">SESC - PE FLORESTA</option>
             <option value="garanhuns">SESC - PE GARANHUNS</option>
             <option value="goiana">SESC - PE GOIANA</option>
@@ -277,24 +278,25 @@ const bancoModalidades = {
 
 // 2. Dicionário de Unidades
 const bancoUnidades = {
-    "arcoverde": { nome: "Sesc Arcoverdee", modalidades: ["alongamento", "futsal", "ginastica", "hidroginastica", "musculacao", "natacao", "pilates"] },
+    "todas": { nome: "Sesc PE", modalidades: Object.keys(bancoModalidades) }, // Opção para mostrar todas as modalidades
+    "araripina": { nome: "Sesc Ler Araripina", modalidades: ["futsal", "futebol_society", "ginastica", "musculacao"] },
+    "arcoverde": { nome: "Sesc Arcoverdee", modalidades: ["alongamento", "futsal", "ginastica", "musculacao", "pilates"] },
     "belo-jardim": { nome: "Sesc Belo Jardim", modalidades: ["futsal", "musculacao", "natacao"] },
+    "bodoco": { nome: "Sesc Ler Bodocó", modalidades: ["futsal", "handebol", "hidroginastica", "natacao"] },
+    "buique": { nome: "Sesc Ler Buíque", modalidades: ["futsal", "hidroginastica", "natacao"] },
     "caruaru": { nome: "Sesc Caruaru", modalidades: ["futsal", "futebol_society", "hidroginastica", "musculacao", "natacao"] },
     "casa-amarela": { nome: "Sesc Casa Amarela", modalidades: ["ginastica", "hidroginastica", "movemente", "natacao", "pilates"] },
-    "triunfo": { nome: "Sesc CTL Triunfo", modalidades: ["natacao"] },
     "floresta": { nome: "Sesc Floresta", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
     "garanhuns": { nome: "Sesc Garanhuns", modalidades: ["futsal", "hidroginastica", "movemente", "musculacao", "natacao", "voleibol"] },
     "goiana": { nome: "Sesc Goiana", modalidades: ["beach_tennis", "corrida", "funcional_kids", "futebol_campo", "futebol_society", "futsal", "ginastica", "hidroginastica", "judo", "musculacao", "natacao", "voleibol"] },
-    "araripina": { nome: "Sesc Ler Araripina", modalidades: ["futsal", "futebol_society", "ginastica", "hidroginastica", "musculacao", "natacao"] },
-    "bodoco": { nome: "Sesc Ler Bodocó", modalidades: ["futsal", "handebol", "hidroginastica", "natacao"] },
-    "buique": { nome: "Sesc Ler Buíque", modalidades: ["futsal", "hidroginastica", "natacao"] },
-    "sao-lourenco-da-mata": { nome: "Sesc Ler São Lourenço da Mata", modalidades: ["ginastica", "movemente", "natacao"] },
-    "surubim": { nome: "Sesc Ler Surubim", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
     "petrolina": { nome: "Sesc Petrolina", modalidades: ["funcional_kids", "futsal", "ginastica", "hidroginastica", "movemente", "musculacao", "natacao"] },
     "piedade": { nome: "Sesc Piedade", modalidades: ["alongamento", "beach_tennis", "funcional_kids", "futebol_society", "hidroginastica", "judo", "movemente", "musculacao", "natacao", "pilates"] },
     "santa-rita": { nome: "Sesc Santa Rita", modalidades: ["alongamento", "ginastica", "pilates"] },
     "santo-amaro": { nome: "Sesc Santo Amaro", modalidades: ["futsal", "musculacao", "voleibol"] },
-    "serra-talhada": { nome: "Sesc Serra Talhada", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] }
+    "sao-lourenco-da-mata": { nome: "Sesc Ler São Lourenço da Mata", modalidades: ["ginastica", "movemente", "natacao"] },
+    "serra-talhada": { nome: "Sesc Serra Talhada", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] },
+    "surubim": { nome: "Sesc Ler Surubim", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
+    "triunfo": { nome: "Sesc CTL Triunfo", modalidades: ["natacao"] }
 };
 
 // 3. Estrutura do Aviso
