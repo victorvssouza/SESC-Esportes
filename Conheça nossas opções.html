@@ -2,305 +2,309 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modalidades SESC</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modalidades SESC</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-.container {
-    max-width: 720px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
+        .container {
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-.titulo {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 30px;
-}
+        .titulo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
 
-.select-box {
-    margin-bottom: 20px;
-    position: relative;
-}
+        .select-box {
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-.select-box::after {
-    content: "\f078";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
+        .select-box::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
 
-select {
-    width: 100%;
-    height: 60px;
-    border: 1px solid #e0e0e0;
-    border-radius: 50px;
-    padding: 0 25px;
-    font-size: 16px;
-    background: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,.05);
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-}
+        select {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #e0e0e0;
+            border-radius: 50px;
+            padding: 0 25px;
+            font-size: 16px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
+            appearance: none;
+            outline: none;
+            cursor: pointer;
+        }
 
-.card {
-    width: 100%;
-    background: #fff;
-    border-radius: 20px;
-    padding: 30px 25px;
-    border: 2px solid #2b579a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 220px;
-    overflow: hidden;
-}
+        .card {
+            width: 100%;
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 25px;
+            border: 2px solid #2b579a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 220px;
+            overflow: hidden;
+        }
 
-#bloco-dinamico {
-    width: 100%;
-    text-align: center;
-}
+        #bloco-dinamico {
+            width: 100%;
+            text-align: center;
+        }
 
-#bloco-dinamico h2 {
-    color: #0b4aa2;
-    font-size: 18px;
-    margin-bottom: 25px;
-}
+        #bloco-dinamico h2 {
+            color: #0b4aa2;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
 
-/* LISTAS CORRIGIDAS */
-.lista-modalidades {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    /*flex-wrap: nowrap;*/
-    flex-wrap: wrap;
-    justify-content: center; /* Centraliza os itens quando quebrar linha */
-    
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto;
-    
-    overflow-x: auto;
-    padding-bottom: 12px;
-    padding-left: 2px;
-    padding-right: 2px;
-    
-    -ms-overflow-style: none;
-    scrollbar-width: thin; 
-}
+        /* LISTAS CORRIGIDAS */
+        .lista-modalidades {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            /*flex-wrap: nowrap;*/
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Centraliza os itens quando quebrar linha */
 
-.lista-modalidades::-webkit-scrollbar {
-    height: 6px;
-}
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
 
-.lista-modalidades::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
+            overflow-x: auto;
+            padding-bottom: 12px;
+            padding-left: 2px;
+            padding-right: 2px;
 
-.item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #2b579a;
-    white-space: nowrap;
-}
+            -ms-overflow-style: none;
+            scrollbar-width: thin;
+        }
 
-.item span {
-    font-weight: 700;
-}
+        .lista-modalidades::-webkit-scrollbar {
+            height: 6px;
+        }
 
-/* ÍCONES E IMAGENS */
-#bloco-dinamico .item i,
-#bloco-dinamico .item .material-symbols-outlined {
-    font-size: 28px;
-    width: 30px;
-    text-align: center;
-}
+        .lista-modalidades::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
 
-#bloco-dinamico .item span {
-    font-size: 17px;
-}
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2b579a;
+            white-space: nowrap;
+        }
 
-#bloco-dinamico .item img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    flex-shrink: 0;
-    filter: brightness(0) saturate(100%) invert(29%) sepia(42%) saturate(1192%) hue-rotate(189deg) brightness(92%) contrast(91%);
-}
+        .item span {
+            font-weight: 700;
+        }
 
-.divisor {
-    width: 1px;
-    height: 26px;
-    background: #ccc;
-    flex-shrink: 0;
-}
+        /* ÍCONES E IMAGENS */
+        #bloco-dinamico .item i,
+        #bloco-dinamico .item .material-symbols-outlined {
+            font-size: 28px;
+            width: 30px;
+            text-align: center;
+        }
 
-/* AVISO */
-#bloco-aviso {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-}
+        #bloco-dinamico .item span {
+            font-size: 17px;
+        }
 
-#bloco-aviso img {
-    width: 120px;
-}
+        #bloco-dinamico .item img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: brightness(0) saturate(100%) invert(29%) sepia(42%) saturate(1192%) hue-rotate(189deg) brightness(92%) contrast(91%);
+        }
 
-.aviso-texto h2 {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
+        .divisor {
+            width: 1px;
+            height: 26px;
+            background: #ccc;
+            flex-shrink: 0;
+        }
 
-.aviso-texto p {
-    margin-bottom: 12px;
-    line-height: 1.4;
-}
+        /* AVISO */
+        #bloco-aviso {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+        }
 
-/* MOBILE */
-@media(max-width: 600px) {
-    .lista-modalidades {
-        scrollbar-width: none; 
-    }
+        #bloco-aviso img {
+            width: 120px;
+        }
 
-    .lista-modalidades::-webkit-scrollbar {
-        display: none;
-    }
+        .aviso-texto h2 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
 
-    .divisor {
-        display: none;
-    }
+        .aviso-texto p {
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
 
-    #bloco-aviso {
-        flex-direction: column;
-        text-align: center;
-    }
+        /* MOBILE */
+        @media(max-width: 600px) {
+            .lista-modalidades {
+                scrollbar-width: none;
+            }
 
-    #bloco-dinamico .item i {
-        font-size: 26px;
-    }
+            .lista-modalidades::-webkit-scrollbar {
+                display: none;
+            }
 
-    #bloco-dinamico .item span {
-        font-size: 16px;
-    }
+            .divisor {
+                display: none;
+            }
 
-    #bloco-dinamico .item img {
-        width: 26px;
-        height: 26px;
-    }
-}
-</style>
+            #bloco-aviso {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #bloco-dinamico .item i {
+                font-size: 26px;
+            }
+
+            #bloco-dinamico .item span {
+                font-size: 16px;
+            }
+
+            #bloco-dinamico .item img {
+                width: 26px;
+                height: 26px;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="titulo">
-        Conheça nossas opções
-    </h1>
+        <h1 class="titulo">
+            Conheça nossas opções
+        </h1>
 
-    <div class="select-box">
-        <select id="unidadeSelect">
-            <option value="todas" selected>SELECIONE SUA UNIDADE</option>
-            <option value="araripina">SESC - PE ARARIPINA</option>
-            <option value="arcoverde">SESC - PE ARCOVERDE</option>
-            <option value="belo-jardim">SESC - PE BELO JARDIM</option>
-            <option value="bodoco">SESC - PE LER BODOCÓ</option>
-            <option value="buique">SESC - PE LER BUIQUE</option>
-            <option value="caruaru">SESC - PE CARUARU</option>
-            <option value="casa-amarela">SESC - PE CASA AMARELA</option>
-            <option value="floresta">SESC - PE FLORESTA</option>
-            <option value="garanhuns">SESC - PE GARANHUNS</option>
-            <option value="goiana">SESC - PE GOIANA</option>
-            <option value="petrolina">SESC - PE PETROLINA</option>
-            <option value="piedade">SESC - PE PIEDADE</option>
-            <option value="santa-rita">SESC - PE SANTA RITA</option>
-            <option value="santo-amaro">SESC - PE SANTO AMARO</option>
-            <option value="sao-lourenco-da-mata">SESC - PE LER SÃO LOURENÇO DA MATA</option>
-            <option value="serra-talhada">SESC - PE SERRA TALHADA</option>
-            <option value="surubim">SESC - PE LER SURUBIM</option>
-            <option value="triunfo">SESC - PE TRIUNFO</option>
-        </select>
+        <div class="select-box">
+            <select id="unidadeSelect">
+                <option value="todas" selected>SELECIONE SUA UNIDADE</option>
+                <option value="araripina">SESC - PE ARARIPINA</option>
+                <option value="arcoverde">SESC - PE ARCOVERDE</option>
+                <option value="belo-jardim">SESC - PE BELO JARDIM</option>
+                <option value="bodoco">SESC - PE LER BODOCÓ</option>
+                <option value="buique">SESC - PE LER BUIQUE</option>
+                <option value="caruaru">SESC - PE CARUARU</option>
+                <option value="casa-amarela">SESC - PE CASA AMARELA</option>
+                <option value="floresta">SESC - PE FLORESTA</option>
+                <option value="garanhuns">SESC - PE GARANHUNS</option>
+                <option value="goiana">SESC - PE GOIANA</option>
+                <option value="petrolina">SESC - PE PETROLINA</option>
+                <option value="piedade">SESC - PE PIEDADE</option>
+                <option value="santa-rita">SESC - PE SANTA RITA</option>
+                <option value="santo-amaro">SESC - PE SANTO AMARO</option>
+                <option value="sao-lourenco-da-mata">SESC - PE LER SÃO LOURENÇO DA MATA</option>
+                <option value="serra-talhada">SESC - PE SERRA TALHADA</option>
+                <option value="surubim">SESC - PE LER SURUBIM</option>
+                <option value="triunfo">SESC - PE TRIUNFO</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <div id="conteudo-dinamico" style="width: 100%;"></div>
+        </div>
+
     </div>
 
-    <div class="card">
-        <div id="conteudo-dinamico" style="width: 100%;"></div>
-    </div>
+    <script>
+        // 1. Dicionário Central de Modalidades
+        const bancoModalidades = {
+            alongamento: { nome: "Alongamento", icone: '<span class="material-symbols-outlined">physical_therapy</span>' },
+            beach_tennis: { nome: "Beach Tennis", icone: '<span class="material-symbols-outlined">sports_tennis</span>' },
+            corrida: { nome: "Corrida Orientada", icone: '<span class="material-symbols-outlined">steps</span>' },
+            funcional_kids: { nome: "Funcional Kids", icone: '<svg width="30" height="35" viewBox="0 0 129 110" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_448_6)"><path d="M21.0313 7.88751C18.732 10.187 17.5867 12.9463 17.5867 16.1742C17.5867 19.4021 18.732 22.1614 21.0313 24.4608C23.3305 26.7603 26.0896 27.9057 29.3172 27.9057C32.5448 27.9057 35.3039 26.7603 37.6031 24.4608C39.9023 22.1614 41.0476 19.4021 41.0476 16.1742C41.0476 12.9463 39.9023 10.187 37.6031 7.88751C37.4209 7.70529 37.2387 7.54911 37.0565 7.38424V5.77029C37.0565 2.58579 33.5946 0 29.3259 0C25.4562 0 22.2546 2.1259 21.6907 4.8939L13.6997 4.44269L13.1011 6.53388L21.7514 7.24541C21.5171 7.45366 21.2829 7.65323 21.0486 7.88751H21.0313Z" fill="currentColor"/><path d="M121.963 4.44263L76.2304 30.8298H59.5111L83.8483 13.3888L76.2304 4.44263L35.1826 33.7627H0V45.4941H41.0478L61.5674 51.3599L64.5 110H76.2304L79.1544 51.3599L129 12.6512L121.963 4.44263Z" fill="currentColor"/></g><defs><clipPath id="clip0_448_6"><rect width="129" height="110" fill="white"/></clipPath></defs></svg>' },
+            futebol_campo: { nome: "Futebol de Campo", icone: '<span class="material-symbols-outlined">shoe_cleats</span>' },
+            futebol_society: { nome: "Futebol Society", icone: '<span class="material-symbols-outlined">sports_soccer</span>' },
+            futsal: { nome: "Futsal", icone: '<span class="material-symbols-outlined">sports_and_outdoors</span>' },
+            ginastica: { nome: "Ginástica Multifuncional", icone: '<span class="material-symbols-outlined">sports_gymnastics</span>' },
+            handebol: { nome: "Handebol", icone: '<span class="material-symbols-outlined">sports_handball</span>' },
+            hidroginastica: { nome: "Hidroginástica", icone: '<svg width="25" height="35" viewBox="0 0 97 110" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_448_26)"><path d="M45.4471 37.3886C50.5988 37.3886 55.0145 35.5581 58.6851 31.8972C62.3558 28.2363 64.1911 23.8323 64.1911 18.6943C64.1911 13.5563 62.3558 9.15232 58.6851 5.49139C55.0145 1.83046 50.5988 0 45.4471 0C40.2955 0 35.8798 1.83046 32.2091 5.49139C28.5385 9.15232 26.7031 13.5563 26.7031 18.6943C26.7031 23.8323 28.5385 28.2363 32.2091 31.8972C35.8798 35.5581 40.2955 37.3886 45.4471 37.3886ZM38.8236 12.0974C40.6589 10.2669 42.8668 9.35168 45.4471 9.35168C48.0275 9.35168 50.2353 10.2669 52.0707 12.0974C53.906 13.9278 54.8237 16.1298 54.8237 18.7034C54.8237 21.2769 53.906 23.4789 52.0707 25.3093C50.2353 27.1398 48.0275 28.055 45.4471 28.055C42.8668 28.055 40.6589 27.1398 38.8236 25.3093C36.9882 23.4789 36.0706 21.2769 36.0706 18.7034C36.0706 16.1298 36.9882 13.9278 38.8236 12.0974Z" fill="currentColor"/><path d="M89.1497 62.8701C91.4121 62.2448 93.2928 60.9853 94.7738 59.0732C96.2548 57.1612 96.9998 55.0045 96.9998 52.5851C96.9998 49.6219 95.964 47.1299 93.8925 45.1092C91.8209 43.0884 89.3042 42.0735 86.3331 42.0735H36.0705C29.5832 42.0735 24.059 44.348 19.4889 48.906C14.9187 53.464 12.6382 58.9736 12.6382 65.4436V75.0762C13.5013 74.9946 14.4372 74.9403 15.4639 74.9403C19.8341 74.9403 22.8688 75.7196 24.5406 77.2782C26.2215 78.8368 28.4293 79.6161 31.1641 79.6161C33.899 79.6161 36.1977 78.8368 37.8422 77.2782C39.3232 75.8736 41.9399 75.1034 45.656 74.9675L41.9308 73.4995C41.4583 73.3454 41.1313 73.0917 40.9314 72.7383C40.7406 72.3849 40.677 72.0134 40.7587 71.6237C40.8405 71.234 41.0131 70.8806 41.2857 70.5725C41.5583 70.2644 41.9671 70.1013 42.5123 70.1013H68.8702V77.5772C68.9974 77.4776 69.1155 77.3779 69.2336 77.2691C70.8691 75.7105 73.8765 74.9312 78.2377 74.9312V66.0145L89.1315 62.861L89.1497 62.8701ZM61.6106 60.7587H42.5123C39.4685 60.7587 36.8518 61.8461 34.6622 64.03C32.4725 66.2139 31.3822 68.8236 31.3822 71.8593C31.3822 72.403 31.4185 72.9105 31.5003 73.3817C31.5821 73.8529 31.6911 74.315 31.8547 74.7862H22.0147V65.4346C22.0147 61.538 23.3776 58.2305 26.1124 55.5029C28.8472 52.7754 32.1636 51.4161 36.0705 51.4161H86.3331C86.7238 51.4161 87.0145 51.5158 87.2144 51.7061C87.4143 51.8964 87.5506 52.1501 87.6233 52.4673C87.7051 52.7754 87.6596 53.0472 87.5052 53.2828C87.3507 53.5184 87.0781 53.7087 86.6874 53.8628L61.6106 60.7587Z" fill="currentColor"/><path d="M78.2651 95.9724C73.8948 95.9724 70.8874 96.7517 69.2429 98.3103C67.5984 99.8689 65.3723 100.648 62.5648 100.648C59.7573 100.648 57.5313 99.8689 55.8867 98.3103C54.2422 96.7517 51.2348 95.9724 46.8646 95.9724C42.4943 95.9724 39.4869 96.7517 37.8424 98.3103C36.1978 99.8689 33.9718 100.648 31.1643 100.648C28.3568 100.648 26.1308 99.8689 24.4862 98.3103C22.8417 96.7517 19.8343 95.9724 15.464 95.9724C11.0938 95.9724 8.15905 96.7517 6.67806 98.3103C5.19708 99.8689 2.97106 100.648 0 100.648V110C4.6065 110 7.63207 109.221 9.07671 107.662C10.5214 106.103 12.6474 105.324 15.464 105.324C18.2806 105.324 20.4976 106.103 22.1421 107.662C23.7866 109.221 26.794 110 31.1643 110C35.5346 110 38.542 109.221 40.1865 107.662C41.831 106.103 44.057 105.324 46.8646 105.324C49.6721 105.324 51.8981 106.103 53.5426 107.662C55.1871 109.221 58.1945 110 62.5648 110C66.9351 110 69.9425 109.221 71.587 107.662C73.2315 106.103 75.4576 105.324 78.2651 105.324C81.0726 105.324 83.2077 106.103 84.6524 107.662C86.097 109.221 89.1226 110 93.7291 110V100.648C90.7581 100.648 88.532 99.8689 87.051 98.3103C85.5701 96.7517 82.6353 95.9724 78.2651 95.9724Z" fill="currentColor"/><path d="M12.6383 84.1288V75.0671C9.80358 75.3481 7.81379 76.082 6.67806 77.2691C5.19708 78.8277 2.97106 79.6071 0 79.6071V88.9587C4.6065 88.9587 7.63207 88.1794 9.07671 86.6208C10.5214 85.0622 12.6474 84.2829 15.464 84.2829C18.2806 84.2829 20.443 85.0622 21.9695 86.6208C23.4959 88.1794 26.5578 88.9587 31.1643 88.9587C35.7708 88.9587 38.7964 88.1794 40.241 86.6208C41.2404 85.5425 42.6033 84.8538 44.3296 84.5185L43.3302 84.1288H12.6383Z" fill="currentColor"/><path d="M78.2378 84.2919C78.2378 84.2919 78.256 84.2919 78.265 84.2919C81.0726 84.2919 83.2077 85.0712 84.6524 86.6298C86.097 88.1884 89.1226 88.9677 93.7291 88.9677V79.616C90.758 79.616 88.532 78.8367 87.051 77.2781C85.57 75.7195 82.6353 74.9402 78.265 74.9402C78.265 74.9402 78.256 74.9402 78.2469 74.9402V84.1288C78.2469 84.1831 78.2469 84.2284 78.2378 84.2828V84.2919Z" fill="currentColor"/><path d="M68.8796 77.5953C67.2805 78.9364 65.1816 79.616 62.5649 79.616C59.7574 79.616 57.5314 78.8367 55.8869 77.2781C54.2423 75.7195 51.2349 74.9402 46.8647 74.9402C46.4467 74.9402 46.0469 74.9583 45.6562 74.9674L68.8796 84.1288V77.5862V77.5953Z" fill="currentColor"/><path d="M68.8793 77.5952V84.1378L45.656 74.9764C41.9399 75.1123 39.3323 75.8735 37.8422 77.2871C36.1977 78.8458 33.9716 79.6251 31.1641 79.6251C28.3566 79.6251 26.2215 78.8458 24.5406 77.2871C22.8597 75.7285 19.8341 74.9492 15.4639 74.9492C14.4372 74.9492 13.5013 74.9945 12.6382 75.0851V84.1468H43.3391L44.3385 84.5365C45.1108 84.3825 45.9467 84.3009 46.8735 84.3009C49.681 84.3009 51.8888 85.0802 53.497 86.6388C55.1052 88.1974 58.1217 88.9767 62.5737 88.9767C67.0258 88.9767 70.2512 88.1974 71.7686 86.6388C73.2859 85.0893 75.4483 84.31 78.2467 84.3009C78.2467 84.2465 78.2558 84.2012 78.2558 84.1468V74.9583C73.8946 74.9583 70.8872 75.7376 69.2518 77.2962C69.1337 77.4049 69.0065 77.5046 68.8884 77.6043L68.8793 77.5952Z" fill="currentColor"/></g><defs><clipPath id="clip0_448_26"><rect width="97" height="110" fill="white"/></clipPath></defs></svg>' },
+            judo: { nome: "Judô", icone: '<span class="material-symbols-outlined">sports_kabaddi</span>' },
+            movemente: {
+                nome: "Movemente 60+",
+                icone: '<svg width="30" height="35" viewBox="0 0 112 110" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_448_11)"><path d="M107.716 69.9833L103.276 65.5337L105.652 63.0747L95.5064 52.9071L93.0527 55.288L88.535 50.7603L90.9107 48.3014C92.1278 47.0816 93.6272 46.4864 95.4285 46.5157C97.22 46.545 98.7292 47.1597 99.9463 48.3794L110.17 58.6251C111.387 59.8449 111.99 61.3378 111.99 63.1137C111.99 64.8897 111.387 66.3826 110.17 67.6023L107.716 69.9833ZM69.6849 108.175C68.4679 109.395 66.9782 110 65.2061 110C63.434 110 61.9443 109.395 60.7273 108.175L50.5038 97.9297C49.2868 96.7099 48.6831 95.217 48.6831 93.4411C48.6831 91.6651 49.2868 90.1722 50.5038 88.9525L52.8796 86.5716L57.3974 91.0992L54.9437 93.4801L65.1672 103.726L67.5429 101.267L72.0607 105.794L69.6849 108.175ZM101.144 81.4975L105.662 76.9699L81.6512 52.9071L77.1334 57.4347L101.144 81.4975ZM78.9542 103.726L83.4719 99.1201L59.5491 75.1451L54.9535 79.6728L78.9639 103.736L78.9542 103.726ZM78.4771 85.1469L87.1913 76.4917L82.1186 71.4079L73.4822 80.1412L78.4771 85.1469ZM83.4719 108.175C82.2549 109.395 80.7554 110 78.9542 110C77.1529 110 75.6535 109.395 74.4364 108.175L50.5136 84.2004C49.2965 82.9807 48.6928 81.478 48.6928 79.6728C48.6928 77.8676 49.2965 76.3649 50.5136 75.1451L55.0314 70.6175C56.2484 69.3978 57.7381 68.7928 59.5102 68.7928C61.2823 68.7928 62.772 69.3978 63.989 70.6175L68.9839 75.6233L77.6981 66.89L72.7033 61.9623C71.4862 60.7426 70.8825 59.2399 70.8825 57.4347C70.8825 55.6295 71.4862 54.1268 72.7033 52.9071L77.2211 48.3794C78.4381 47.1597 79.9278 46.5547 81.6999 46.5547C83.4719 46.5547 84.9616 47.1597 86.1787 48.3794L110.189 72.4422C111.406 73.662 112.01 75.1549 112.01 76.9308C112.01 78.7068 111.406 80.1997 110.189 81.4194L105.671 85.9471C104.454 87.1668 102.955 87.7718 101.154 87.7718C99.3621 87.7718 97.8529 87.1668 96.6358 85.9471L91.7188 80.9413L83.0046 89.6746L87.9995 94.6803C89.2165 95.9 89.8202 97.393 89.8202 99.1689C89.8202 100.945 89.2165 102.438 87.9995 103.658L83.4817 108.185L83.4719 108.175Z" fill="currentColor"/><path d="M43.3765 93.2263C43.3765 90.6795 44.1068 88.3474 45.4991 86.3568C45.2751 86.0348 45.0804 85.703 44.8857 85.3712C44.5741 86.5227 43.9802 87.5375 43.0941 88.4352C41.731 89.8013 40.0563 90.4843 38.0895 90.4843C36.1227 90.4843 34.5649 89.7525 33.1531 88.2888C31.7413 86.8252 30.9916 85.1566 30.8942 83.2733C32.8707 82.5219 34.7012 81.4779 36.3954 80.1606C38.0895 78.8433 39.589 77.282 40.9132 75.4963C41.8576 74.179 42.2081 72.7641 41.9744 71.2517C41.7408 69.7392 40.9618 68.5195 39.6474 67.573C38.333 66.6264 36.9212 66.2752 35.412 66.5094C33.9028 66.7435 32.6857 67.5242 31.7413 68.8415C30.7092 70.3539 29.3948 71.5054 27.7882 72.3055C26.1914 73.1056 24.4486 73.5057 22.5694 73.5057C19.4634 73.5057 16.8054 72.4031 14.5951 70.1881C12.3849 67.973 11.2847 65.3091 11.2847 62.1964C11.2847 61.728 11.3042 61.2499 11.3529 60.7815C11.4015 60.3131 11.5184 59.835 11.7034 59.3666C13.3002 60.3131 15.0138 61.0157 16.854 61.4841C18.6943 61.9524 20.5929 62.1866 22.5694 62.1866C24.1662 62.1866 25.5099 61.6402 26.5906 60.5571C27.6714 59.474 28.2166 58.1274 28.2166 56.5271C28.2166 54.9268 27.6714 53.5802 26.5906 52.4971C25.5099 51.414 24.1662 50.8676 22.5694 50.8676C19.4634 50.8676 16.8054 49.7649 14.5951 47.5499C12.3849 45.3349 11.2847 42.671 11.2847 39.5582C11.2847 36.4455 12.3849 33.928 14.5951 31.7129C16.8054 29.4979 19.4148 28.3465 22.4234 28.2489C23.4554 29.9468 24.7991 31.43 26.4446 32.6985C28.0901 33.967 29.9011 34.9818 31.8776 35.7429C33.3868 36.3089 34.8375 36.2601 36.2493 35.6063C37.6611 34.9428 38.6445 33.8597 39.2093 32.357C39.6766 30.8445 39.589 29.3906 38.9269 27.9757C38.2648 26.5608 37.184 25.6241 35.6846 25.1459C34.2728 24.6775 33.1434 23.7993 32.2963 22.5308C31.4492 21.2623 31.0305 19.8669 31.0305 18.3642C31.0305 16.3834 31.7121 14.7148 33.0752 13.3487C34.4383 11.9826 36.113 11.2996 38.0798 11.2996C40.0466 11.2996 41.7213 11.9826 43.0844 13.3487C44.4475 14.7148 45.1291 16.3932 45.1291 18.3642V73.0959C45.6062 72.3153 46.1709 71.5834 46.8427 70.9199L51.3605 66.3923C52.8113 64.9383 54.5249 63.9333 56.4235 63.3869V18.3837C56.4235 16.4029 57.1051 14.7343 58.4682 13.3682C59.8313 12.0021 61.506 11.3191 63.4728 11.3191C65.4396 11.3191 67.1143 12.0021 68.4774 13.3682C69.8406 14.7343 70.5221 16.4127 70.5221 18.3837C70.5221 19.984 70.0742 21.3989 69.1785 22.6284C68.2827 23.8579 67.1338 24.7068 65.722 25.1752C64.2128 25.6436 63.1613 26.5901 62.5479 28.005C61.9344 29.4199 61.8663 30.8835 62.3336 32.3862C62.801 33.8987 63.7455 34.9818 65.1573 35.6356C66.5691 36.2991 68.0296 36.3382 69.529 35.7722C71.5055 35.0208 73.3165 34.006 74.962 32.7278C76.6075 31.4495 77.9511 29.9663 78.9832 28.2782C82.0892 28.3758 84.7473 29.5077 86.9575 31.6739C89.1677 33.8401 90.2679 36.4845 90.2679 39.5875C90.2679 40.4364 90.1803 41.2561 90.0148 42.0367C91.6992 41.1292 93.5978 40.6511 95.6328 40.6511H95.8275C97.8527 40.6804 99.7319 41.1683 101.416 42.066C101.504 41.2561 101.553 40.4267 101.553 39.5875C101.553 33.8401 99.6443 28.8441 95.8373 24.5995C92.0303 20.3548 87.347 17.8568 81.7971 17.1055C81.5147 12.2949 79.6064 8.24537 76.0817 4.94722C72.5571 1.64907 68.3509 0 63.4534 0C61.0095 0 58.7019 0.468376 56.5404 1.41489C54.3789 2.36139 52.451 3.62991 50.7568 5.2302C48.9653 3.62991 47.018 2.35164 44.9052 1.41489C42.7923 0.468376 40.5042 0 38.0603 0C33.1726 0 28.9371 1.66859 25.3638 5.01552C21.7905 8.36246 19.8626 12.4412 19.5803 17.2421C14.0304 17.9934 9.37634 20.4719 5.61801 24.6678C1.87916 28.8637 0 33.8401 0 39.5875C0 41.6659 0.262888 43.637 0.778927 45.53C1.29497 47.4133 2.07389 49.2087 3.10597 50.9066C2.07389 52.6045 1.29497 54.4194 0.778927 56.3515C0.262888 58.2835 0 60.2351 0 62.2159C0 67.9633 1.87916 72.9593 5.64722 77.2039C9.40555 81.4486 14.1083 83.9466 19.7555 84.698C20.2229 89.411 22.1994 93.441 25.6851 96.7879C29.1611 100.135 33.2991 101.803 38.0993 101.803C40.4458 101.803 42.7047 101.355 44.8662 100.457C45.0999 100.359 45.3141 100.242 45.5478 100.145C44.136 98.154 43.3862 95.8024 43.3862 93.2361L43.3765 93.2263Z" fill="currentColor"/></g><defs><clipPath id="clip0_448_11"><rect width="112" height="110" fill="white"/></clipPath></defs></svg>'
+            },
+            musculacao: { nome: "Musculação", icone: '<span class="material-symbols-outlined">fitness_center</span>' },
+            natacao: { nome: "Natação", icone: '<span class="material-symbols-outlined">pool</span>' },
+            pilates: { nome: "Pilates de Solo", icone: '<svg width="35" height="35" viewBox="0 0 111 82" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M67.6894 8.91942C71.3032 8.91942 74.7982 10.3961 77.2841 12.971C80.0964 15.8798 81.4395 19.8498 80.972 23.8717C80.512 27.8639 78.3378 31.3737 75.006 33.5108C72.394 35.1879 69.6262 36.0783 67.0067 36.0783C63.7417 36.0783 60.8032 34.6907 58.5177 32.0713L58.5029 32.049L58.4806 32.0267L56.7665 30.0974L54.6071 27.6709L54.7036 27.6338L54.3623 23.4784C53.8948 17.8388 56.8704 12.6297 61.946 10.2106C63.764 9.34239 65.6933 8.90458 67.6968 8.90458M46.3927 30.6169L42.304 32.472C41.1093 33.0137 39.3729 33.1695 37.5401 33.3402C36.5977 33.4292 35.6182 33.5183 34.609 33.6667L27.5521 34.6907L30.4238 41.2207L37.3026 56.8853L39.4323 61.7383L44.3372 59.7273L67.63 50.1772C67.9194 50.0585 68.0901 50.0436 68.194 50.0436C68.6244 50.0436 69.1958 50.333 69.5965 50.5705L70.9544 51.3867L96.0875 66.5393C96.1617 66.5838 96.2062 66.6209 96.2285 66.6506L70.6502 55.0747L68.2979 54.0062L65.9901 55.1637L36.3751 69.9527C36.056 70.116 35.7295 70.1902 35.3585 70.1902C34.75 70.1902 34.045 69.9898 33.3104 69.604C32.7836 69.3294 32.2196 67.9121 31.6853 66.4874C28.6355 58.3249 24.5246 50.4889 19.449 43.1945C17.7645 40.7755 16.644 39.0317 16.3843 36.9391C16.1766 35.2398 16.7925 33.9561 18.2765 33.0211C19.4416 32.2865 19.9016 32.1603 20.4953 32.1529L41.8959 31.9006H42.8086L43.6694 31.5815L46.4149 30.5946M67.6894 3.48764C64.9661 3.48764 62.2057 4.08128 59.6011 5.3205C52.6481 8.63003 48.2775 15.9392 48.9379 23.9384L41.8143 26.4911L20.4136 26.7434C18.4027 26.7656 16.9483 27.4483 15.3603 28.4501C12.1101 30.4981 10.5073 33.8002 10.9748 37.6218C11.3904 40.9981 13.0525 43.5581 14.967 46.3111C19.731 53.1602 23.649 60.5733 26.5726 68.4019C27.5373 70.9768 28.4797 73.24 30.7652 74.4273C32.227 75.1916 33.7853 75.6294 35.3288 75.6294C36.5012 75.6294 37.6662 75.3771 38.7719 74.8206L68.3869 60.0316L94.1285 71.6817C94.8186 71.9934 95.531 72.1344 96.2211 72.1344C98.2914 72.1344 100.213 70.858 101.089 69.0178C102.343 66.3909 101.393 63.4079 98.8702 61.8867L73.7371 46.7341L72.3866 45.9179C71.0064 45.0868 69.6187 44.6044 68.1792 44.6044C67.3258 44.6044 66.4502 44.7751 65.5523 45.1387L42.2595 54.6888L35.3807 39.0242C38.4231 38.579 41.7029 38.6903 44.545 37.4066L52.7075 33.7038L54.4216 35.6331C57.8647 39.5808 62.3244 41.5027 67.0067 41.5027C70.6428 41.5027 74.4123 40.3451 77.9445 38.0744C87.7766 31.7596 89.4982 17.7795 81.1872 9.18656C77.618 5.49859 72.7131 3.48022 67.682 3.48022L67.6894 3.48764Z" fill="currentColor"/><path d="M12.9561 4.91235C17.3936 4.91235 20.9999 8.51869 20.9999 12.9561C20.9999 17.3936 17.3936 20.9999 12.9561 20.9999C8.51869 20.9999 4.91235 17.3936 4.91235 12.9561C4.91235 8.51869 8.51869 4.91235 12.9561 4.91235ZM12.9561 0C5.8028 0 0 5.8028 0 12.9561C0 20.1095 5.8028 25.9123 12.9561 25.9123C20.1095 25.9123 25.9123 20.1095 25.9123 12.9561C25.9123 5.8028 20.1095 0 12.9561 0Z" fill="currentColor"/><path d="M67.252 38.0003C58.8223 38.0003 51.9658 31.1438 51.9658 22.7141C51.9658 14.2845 58.8223 7.42798 67.252 7.42798C75.6816 7.42798 82.5381 14.2845 82.5381 22.7141C82.5381 31.1438 75.6816 38.0003 67.252 38.0003Z" fill="currentColor"/><path d="M67.2521 9.89145C74.3238 9.89145 80.0821 15.6423 80.0821 22.7214C80.0821 29.8006 74.3312 35.5514 67.2521 35.5514C60.173 35.5514 54.4221 29.8006 54.4221 22.7214C54.4221 15.6423 60.173 9.89145 67.2521 9.89145ZM67.2521 4.97168C57.4571 4.97168 49.5098 12.9116 49.5098 22.714C49.5098 32.5164 57.4497 40.4563 67.2521 40.4563C77.0545 40.4563 84.9944 32.5164 84.9944 22.714C84.9944 12.9116 77.0545 4.97168 67.2521 4.97168Z" fill="currentColor"/><path d="M106.714 77.6699H19.5977" stroke="currentColor" stroke-width="7.07" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+            voleibol: { nome: "Voleibol", icone: '<span class="material-symbols-outlined">sports_volleyball</span>' },
+            //voleipraia: { nome: "Volei de Praia", icone: '<span class="material-symbols-outlined">sports_volleyball</span>' },
+            
+        };
 
-</div>
+        // 2. Dicionário de Unidades
+        const bancoUnidades = {
+            "todas": { nome: "Sesc PE", modalidades: Object.keys(bancoModalidades) }, // Opção para mostrar todas as modalidades
+            "araripina": { nome: "Sesc Ler Araripina", modalidades: ["futsal", "futebol_society", "ginastica", "musculacao"] },
+            "arcoverde": { nome: "Sesc Arcoverde", modalidades: ["alongamento", "futsal", "ginastica", "musculacao", "pilates", "voleibol"] },
+            "belo-jardim": { nome: "Sesc Belo Jardim", modalidades: ["futsal", "musculacao", "natacao", "ginastica"] },
+            "bodoco": { nome: "Sesc Ler Bodocó", modalidades: ["futsal", "handebol", "hidroginastica", "natacao"] },
+            "buique": { nome: "Sesc Ler Buíque", modalidades: ["futsal", "hidroginastica", "natacao"] },
+            "caruaru": { nome: "Sesc Caruaru", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] },
+            "casa-amarela": { nome: "Sesc Casa Amarela", modalidades: ["hidroginastica", "movemente", "natacao", "pilates"] },
+            "floresta": { nome: "Sesc Floresta", modalidades: ["futebol_society", "hidroginastica", "natacao","ginastica"] },
+            "garanhuns": { nome: "Sesc Garanhuns", modalidades: ["futsal", "hidroginastica", "movemente", "musculacao", "natacao", "voleibol"] },
+            "goiana": { nome: "Sesc Goiana", modalidades: ["beach_tennis", "corrida", "futebol_campo", "futebol_society", "futsal", "ginastica", "hidroginastica", "judo", "musculacao", "natacao", "voleibol"] },
+            "petrolina": { nome: "Sesc Petrolina", modalidades: ["futsal", "ginastica", "hidroginastica", "movemente", "musculacao", "natacao", "voleibol"] },
+            "piedade": { nome: "Sesc Piedade", modalidades: ["alongamento", "beach_tennis", "funcional_kids", "futebol_society", "hidroginastica", "judo", "movemente", "musculacao", "natacao", "pilates"] },
+            "santa-rita": { nome: "Sesc Santa Rita", modalidades: ["alongamento", "ginastica", "pilates"] },
+            "santo-amaro": { nome: "Sesc Santo Amaro", modalidades: ["futsal", "musculacao", "voleibol"] },
+            "sao-lourenco-da-mata": { nome: "Sesc Ler São Lourenço da Mata", modalidades: ["ginastica", "movemente", "natacao", "hidroginastica"] },
+            "serra-talhada": { nome: "Sesc Serra Talhada", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] },
+            "surubim": { nome: "Sesc Ler Surubim", modalidades: ["futebol_society", "natacao"] },
+            "triunfo": { nome: "Sesc CTL Triunfo", modalidades: ["natacao"] }
+        };
 
-<script>
-// 1. Dicionário Central de Modalidades
-const bancoModalidades = {
-    alongamento: { nome: "Alongamento", icone: '<span class="material-symbols-outlined">physical_therapy</span>' },
-    beach_tennis: { nome: "Beach Tennis", icone: '<span class="material-symbols-outlined">sports_tennis</span>' },
-    corrida: { nome: "Corrida Orientada", icone: '<span class="material-symbols-outlined">steps</span>' },
-    funcional_kids: { nome: "Funcional Kids", icone: '<svg width="30" height="35" viewBox="0 0 129 110" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_448_6)"><path d="M21.0313 7.88751C18.732 10.187 17.5867 12.9463 17.5867 16.1742C17.5867 19.4021 18.732 22.1614 21.0313 24.4608C23.3305 26.7603 26.0896 27.9057 29.3172 27.9057C32.5448 27.9057 35.3039 26.7603 37.6031 24.4608C39.9023 22.1614 41.0476 19.4021 41.0476 16.1742C41.0476 12.9463 39.9023 10.187 37.6031 7.88751C37.4209 7.70529 37.2387 7.54911 37.0565 7.38424V5.77029C37.0565 2.58579 33.5946 0 29.3259 0C25.4562 0 22.2546 2.1259 21.6907 4.8939L13.6997 4.44269L13.1011 6.53388L21.7514 7.24541C21.5171 7.45366 21.2829 7.65323 21.0486 7.88751H21.0313Z" fill="currentColor"/><path d="M121.963 4.44263L76.2304 30.8298H59.5111L83.8483 13.3888L76.2304 4.44263L35.1826 33.7627H0V45.4941H41.0478L61.5674 51.3599L64.5 110H76.2304L79.1544 51.3599L129 12.6512L121.963 4.44263Z" fill="currentColor"/></g><defs><clipPath id="clip0_448_6"><rect width="129" height="110" fill="white"/></clipPath></defs></svg>' },
-    futebol_campo: { nome: "Futebol de Campo", icone: '<span class="material-symbols-outlined">shoe_cleats</span>' },
-    futebol_society: { nome: "Futebol Society", icone: '<span class="material-symbols-outlined">sports_soccer</span>' },
-    futsal: { nome: "Futsal", icone: '<span class="material-symbols-outlined">sports_and_outdoors</span>' },
-    ginastica: { nome: "Ginástica Multifuncional", icone: '<span class="material-symbols-outlined">sports_gymnastics</span>' },
-    handebol: { nome: "Handebol", icone: '<span class="material-symbols-outlined">sports_handball</span>' },
-    hidroginastica: { nome: "Hidroginástica", icone: '<svg width="25" height="35" viewBox="0 0 97 110" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_448_26)"><path d="M45.4471 37.3886C50.5988 37.3886 55.0145 35.5581 58.6851 31.8972C62.3558 28.2363 64.1911 23.8323 64.1911 18.6943C64.1911 13.5563 62.3558 9.15232 58.6851 5.49139C55.0145 1.83046 50.5988 0 45.4471 0C40.2955 0 35.8798 1.83046 32.2091 5.49139C28.5385 9.15232 26.7031 13.5563 26.7031 18.6943C26.7031 23.8323 28.5385 28.2363 32.2091 31.8972C35.8798 35.5581 40.2955 37.3886 45.4471 37.3886ZM38.8236 12.0974C40.6589 10.2669 42.8668 9.35168 45.4471 9.35168C48.0275 9.35168 50.2353 10.2669 52.0707 12.0974C53.906 13.9278 54.8237 16.1298 54.8237 18.7034C54.8237 21.2769 53.906 23.4789 52.0707 25.3093C50.2353 27.1398 48.0275 28.055 45.4471 28.055C42.8668 28.055 40.6589 27.1398 38.8236 25.3093C36.9882 23.4789 36.0706 21.2769 36.0706 18.7034C36.0706 16.1298 36.9882 13.9278 38.8236 12.0974Z" fill="currentColor"/><path d="M89.1497 62.8701C91.4121 62.2448 93.2928 60.9853 94.7738 59.0732C96.2548 57.1612 96.9998 55.0045 96.9998 52.5851C96.9998 49.6219 95.964 47.1299 93.8925 45.1092C91.8209 43.0884 89.3042 42.0735 86.3331 42.0735H36.0705C29.5832 42.0735 24.059 44.348 19.4889 48.906C14.9187 53.464 12.6382 58.9736 12.6382 65.4436V75.0762C13.5013 74.9946 14.4372 74.9403 15.4639 74.9403C19.8341 74.9403 22.8688 75.7196 24.5406 77.2782C26.2215 78.8368 28.4293 79.6161 31.1641 79.6161C33.899 79.6161 36.1977 78.8368 37.8422 77.2782C39.3232 75.8736 41.9399 75.1034 45.656 74.9675L41.9308 73.4995C41.4583 73.3454 41.1313 73.0917 40.9314 72.7383C40.7406 72.3849 40.677 72.0134 40.7587 71.6237C40.8405 71.234 41.0131 70.8806 41.2857 70.5725C41.5583 70.2644 41.9671 70.1013 42.5123 70.1013H68.8702V77.5772C68.9974 77.4776 69.1155 77.3779 69.2336 77.2691C70.8691 75.7105 73.8765 74.9312 78.2377 74.9312V66.0145L89.1315 62.861L89.1497 62.8701ZM61.6106 60.7587H42.5123C39.4685 60.7587 36.8518 61.8461 34.6622 64.03C32.4725 66.2139 31.3822 68.8236 31.3822 71.8593C31.3822 72.403 31.4185 72.9105 31.5003 73.3817C31.5821 73.8529 31.6911 74.315 31.8547 74.7862H22.0147V65.4346C22.0147 61.538 23.3776 58.2305 26.1124 55.5029C28.8472 52.7754 32.1636 51.4161 36.0705 51.4161H86.3331C86.7238 51.4161 87.0145 51.5158 87.2144 51.7061C87.4143 51.8964 87.5506 52.1501 87.6233 52.4673C87.7051 52.7754 87.6596 53.0472 87.5052 53.2828C87.3507 53.5184 87.0781 53.7087 86.6874 53.8628L61.6106 60.7587Z" fill="currentColor"/><path d="M78.2651 95.9724C73.8948 95.9724 70.8874 96.7517 69.2429 98.3103C67.5984 99.8689 65.3723 100.648 62.5648 100.648C59.7573 100.648 57.5313 99.8689 55.8867 98.3103C54.2422 96.7517 51.2348 95.9724 46.8646 95.9724C42.4943 95.9724 39.4869 96.7517 37.8424 98.3103C36.1978 99.8689 33.9718 100.648 31.1643 100.648C28.3568 100.648 26.1308 99.8689 24.4862 98.3103C22.8417 96.7517 19.8343 95.9724 15.464 95.9724C11.0938 95.9724 8.15905 96.7517 6.67806 98.3103C5.19708 99.8689 2.97106 100.648 0 100.648V110C4.6065 110 7.63207 109.221 9.07671 107.662C10.5214 106.103 12.6474 105.324 15.464 105.324C18.2806 105.324 20.4976 106.103 22.1421 107.662C23.7866 109.221 26.794 110 31.1643 110C35.5346 110 38.542 109.221 40.1865 107.662C41.831 106.103 44.057 105.324 46.8646 105.324C49.6721 105.324 51.8981 106.103 53.5426 107.662C55.1871 109.221 58.1945 110 62.5648 110C66.9351 110 69.9425 109.221 71.587 107.662C73.2315 106.103 75.4576 105.324 78.2651 105.324C81.0726 105.324 83.2077 106.103 84.6524 107.662C86.097 109.221 89.1226 110 93.7291 110V100.648C90.7581 100.648 88.532 99.8689 87.051 98.3103C85.5701 96.7517 82.6353 95.9724 78.2651 95.9724Z" fill="currentColor"/><path d="M12.6383 84.1288V75.0671C9.80358 75.3481 7.81379 76.082 6.67806 77.2691C5.19708 78.8277 2.97106 79.6071 0 79.6071V88.9587C4.6065 88.9587 7.63207 88.1794 9.07671 86.6208C10.5214 85.0622 12.6474 84.2829 15.464 84.2829C18.2806 84.2829 20.443 85.0622 21.9695 86.6208C23.4959 88.1794 26.5578 88.9587 31.1643 88.9587C35.7708 88.9587 38.7964 88.1794 40.241 86.6208C41.2404 85.5425 42.6033 84.8538 44.3296 84.5185L43.3302 84.1288H12.6383Z" fill="currentColor"/><path d="M78.2378 84.2919C78.2378 84.2919 78.256 84.2919 78.265 84.2919C81.0726 84.2919 83.2077 85.0712 84.6524 86.6298C86.097 88.1884 89.1226 88.9677 93.7291 88.9677V79.616C90.758 79.616 88.532 78.8367 87.051 77.2781C85.57 75.7195 82.6353 74.9402 78.265 74.9402C78.265 74.9402 78.256 74.9402 78.2469 74.9402V84.1288C78.2469 84.1831 78.2469 84.2284 78.2378 84.2828V84.2919Z" fill="currentColor"/><path d="M68.8796 77.5953C67.2805 78.9364 65.1816 79.616 62.5649 79.616C59.7574 79.616 57.5314 78.8367 55.8869 77.2781C54.2423 75.7195 51.2349 74.9402 46.8647 74.9402C46.4467 74.9402 46.0469 74.9583 45.6562 74.9674L68.8796 84.1288V77.5862V77.5953Z" fill="currentColor"/><path d="M68.8793 77.5952V84.1378L45.656 74.9764C41.9399 75.1123 39.3323 75.8735 37.8422 77.2871C36.1977 78.8458 33.9716 79.6251 31.1641 79.6251C28.3566 79.6251 26.2215 78.8458 24.5406 77.2871C22.8597 75.7285 19.8341 74.9492 15.4639 74.9492C14.4372 74.9492 13.5013 74.9945 12.6382 75.0851V84.1468H43.3391L44.3385 84.5365C45.1108 84.3825 45.9467 84.3009 46.8735 84.3009C49.681 84.3009 51.8888 85.0802 53.497 86.6388C55.1052 88.1974 58.1217 88.9767 62.5737 88.9767C67.0258 88.9767 70.2512 88.1974 71.7686 86.6388C73.2859 85.0893 75.4483 84.31 78.2467 84.3009C78.2467 84.2465 78.2558 84.2012 78.2558 84.1468V74.9583C73.8946 74.9583 70.8872 75.7376 69.2518 77.2962C69.1337 77.4049 69.0065 77.5046 68.8884 77.6043L68.8793 77.5952Z" fill="currentColor"/></g><defs><clipPath id="clip0_448_26"><rect width="97" height="110" fill="white"/></clipPath></defs></svg>' },
-    judo: { nome: "Judô", icone: '<span class="material-symbols-outlined">sports_kabaddi</span>' },
-    movemente: { 
-  nome: "Movemente 60+", 
-  icone: '<svg width="30" height="35" viewBox="0 0 112 110" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_448_11)"><path d="M107.716 69.9833L103.276 65.5337L105.652 63.0747L95.5064 52.9071L93.0527 55.288L88.535 50.7603L90.9107 48.3014C92.1278 47.0816 93.6272 46.4864 95.4285 46.5157C97.22 46.545 98.7292 47.1597 99.9463 48.3794L110.17 58.6251C111.387 59.8449 111.99 61.3378 111.99 63.1137C111.99 64.8897 111.387 66.3826 110.17 67.6023L107.716 69.9833ZM69.6849 108.175C68.4679 109.395 66.9782 110 65.2061 110C63.434 110 61.9443 109.395 60.7273 108.175L50.5038 97.9297C49.2868 96.7099 48.6831 95.217 48.6831 93.4411C48.6831 91.6651 49.2868 90.1722 50.5038 88.9525L52.8796 86.5716L57.3974 91.0992L54.9437 93.4801L65.1672 103.726L67.5429 101.267L72.0607 105.794L69.6849 108.175ZM101.144 81.4975L105.662 76.9699L81.6512 52.9071L77.1334 57.4347L101.144 81.4975ZM78.9542 103.726L83.4719 99.1201L59.5491 75.1451L54.9535 79.6728L78.9639 103.736L78.9542 103.726ZM78.4771 85.1469L87.1913 76.4917L82.1186 71.4079L73.4822 80.1412L78.4771 85.1469ZM83.4719 108.175C82.2549 109.395 80.7554 110 78.9542 110C77.1529 110 75.6535 109.395 74.4364 108.175L50.5136 84.2004C49.2965 82.9807 48.6928 81.478 48.6928 79.6728C48.6928 77.8676 49.2965 76.3649 50.5136 75.1451L55.0314 70.6175C56.2484 69.3978 57.7381 68.7928 59.5102 68.7928C61.2823 68.7928 62.772 69.3978 63.989 70.6175L68.9839 75.6233L77.6981 66.89L72.7033 61.9623C71.4862 60.7426 70.8825 59.2399 70.8825 57.4347C70.8825 55.6295 71.4862 54.1268 72.7033 52.9071L77.2211 48.3794C78.4381 47.1597 79.9278 46.5547 81.6999 46.5547C83.4719 46.5547 84.9616 47.1597 86.1787 48.3794L110.189 72.4422C111.406 73.662 112.01 75.1549 112.01 76.9308C112.01 78.7068 111.406 80.1997 110.189 81.4194L105.671 85.9471C104.454 87.1668 102.955 87.7718 101.154 87.7718C99.3621 87.7718 97.8529 87.1668 96.6358 85.9471L91.7188 80.9413L83.0046 89.6746L87.9995 94.6803C89.2165 95.9 89.8202 97.393 89.8202 99.1689C89.8202 100.945 89.2165 102.438 87.9995 103.658L83.4817 108.185L83.4719 108.175Z" fill="currentColor"/><path d="M43.3765 93.2263C43.3765 90.6795 44.1068 88.3474 45.4991 86.3568C45.2751 86.0348 45.0804 85.703 44.8857 85.3712C44.5741 86.5227 43.9802 87.5375 43.0941 88.4352C41.731 89.8013 40.0563 90.4843 38.0895 90.4843C36.1227 90.4843 34.5649 89.7525 33.1531 88.2888C31.7413 86.8252 30.9916 85.1566 30.8942 83.2733C32.8707 82.5219 34.7012 81.4779 36.3954 80.1606C38.0895 78.8433 39.589 77.282 40.9132 75.4963C41.8576 74.179 42.2081 72.7641 41.9744 71.2517C41.7408 69.7392 40.9618 68.5195 39.6474 67.573C38.333 66.6264 36.9212 66.2752 35.412 66.5094C33.9028 66.7435 32.6857 67.5242 31.7413 68.8415C30.7092 70.3539 29.3948 71.5054 27.7882 72.3055C26.1914 73.1056 24.4486 73.5057 22.5694 73.5057C19.4634 73.5057 16.8054 72.4031 14.5951 70.1881C12.3849 67.973 11.2847 65.3091 11.2847 62.1964C11.2847 61.728 11.3042 61.2499 11.3529 60.7815C11.4015 60.3131 11.5184 59.835 11.7034 59.3666C13.3002 60.3131 15.0138 61.0157 16.854 61.4841C18.6943 61.9524 20.5929 62.1866 22.5694 62.1866C24.1662 62.1866 25.5099 61.6402 26.5906 60.5571C27.6714 59.474 28.2166 58.1274 28.2166 56.5271C28.2166 54.9268 27.6714 53.5802 26.5906 52.4971C25.5099 51.414 24.1662 50.8676 22.5694 50.8676C19.4634 50.8676 16.8054 49.7649 14.5951 47.5499C12.3849 45.3349 11.2847 42.671 11.2847 39.5582C11.2847 36.4455 12.3849 33.928 14.5951 31.7129C16.8054 29.4979 19.4148 28.3465 22.4234 28.2489C23.4554 29.9468 24.7991 31.43 26.4446 32.6985C28.0901 33.967 29.9011 34.9818 31.8776 35.7429C33.3868 36.3089 34.8375 36.2601 36.2493 35.6063C37.6611 34.9428 38.6445 33.8597 39.2093 32.357C39.6766 30.8445 39.589 29.3906 38.9269 27.9757C38.2648 26.5608 37.184 25.6241 35.6846 25.1459C34.2728 24.6775 33.1434 23.7993 32.2963 22.5308C31.4492 21.2623 31.0305 19.8669 31.0305 18.3642C31.0305 16.3834 31.7121 14.7148 33.0752 13.3487C34.4383 11.9826 36.113 11.2996 38.0798 11.2996C40.0466 11.2996 41.7213 11.9826 43.0844 13.3487C44.4475 14.7148 45.1291 16.3932 45.1291 18.3642V73.0959C45.6062 72.3153 46.1709 71.5834 46.8427 70.9199L51.3605 66.3923C52.8113 64.9383 54.5249 63.9333 56.4235 63.3869V18.3837C56.4235 16.4029 57.1051 14.7343 58.4682 13.3682C59.8313 12.0021 61.506 11.3191 63.4728 11.3191C65.4396 11.3191 67.1143 12.0021 68.4774 13.3682C69.8406 14.7343 70.5221 16.4127 70.5221 18.3837C70.5221 19.984 70.0742 21.3989 69.1785 22.6284C68.2827 23.8579 67.1338 24.7068 65.722 25.1752C64.2128 25.6436 63.1613 26.5901 62.5479 28.005C61.9344 29.4199 61.8663 30.8835 62.3336 32.3862C62.801 33.8987 63.7455 34.9818 65.1573 35.6356C66.5691 36.2991 68.0296 36.3382 69.529 35.7722C71.5055 35.0208 73.3165 34.006 74.962 32.7278C76.6075 31.4495 77.9511 29.9663 78.9832 28.2782C82.0892 28.3758 84.7473 29.5077 86.9575 31.6739C89.1677 33.8401 90.2679 36.4845 90.2679 39.5875C90.2679 40.4364 90.1803 41.2561 90.0148 42.0367C91.6992 41.1292 93.5978 40.6511 95.6328 40.6511H95.8275C97.8527 40.6804 99.7319 41.1683 101.416 42.066C101.504 41.2561 101.553 40.4267 101.553 39.5875C101.553 33.8401 99.6443 28.8441 95.8373 24.5995C92.0303 20.3548 87.347 17.8568 81.7971 17.1055C81.5147 12.2949 79.6064 8.24537 76.0817 4.94722C72.5571 1.64907 68.3509 0 63.4534 0C61.0095 0 58.7019 0.468376 56.5404 1.41489C54.3789 2.36139 52.451 3.62991 50.7568 5.2302C48.9653 3.62991 47.018 2.35164 44.9052 1.41489C42.7923 0.468376 40.5042 0 38.0603 0C33.1726 0 28.9371 1.66859 25.3638 5.01552C21.7905 8.36246 19.8626 12.4412 19.5803 17.2421C14.0304 17.9934 9.37634 20.4719 5.61801 24.6678C1.87916 28.8637 0 33.8401 0 39.5875C0 41.6659 0.262888 43.637 0.778927 45.53C1.29497 47.4133 2.07389 49.2087 3.10597 50.9066C2.07389 52.6045 1.29497 54.4194 0.778927 56.3515C0.262888 58.2835 0 60.2351 0 62.2159C0 67.9633 1.87916 72.9593 5.64722 77.2039C9.40555 81.4486 14.1083 83.9466 19.7555 84.698C20.2229 89.411 22.1994 93.441 25.6851 96.7879C29.1611 100.135 33.2991 101.803 38.0993 101.803C40.4458 101.803 42.7047 101.355 44.8662 100.457C45.0999 100.359 45.3141 100.242 45.5478 100.145C44.136 98.154 43.3862 95.8024 43.3862 93.2361L43.3765 93.2263Z" fill="currentColor"/></g><defs><clipPath id="clip0_448_11"><rect width="112" height="110" fill="white"/></clipPath></defs></svg>' 
-},
-    musculacao: { nome: "Musculação", icone: '<span class="material-symbols-outlined">fitness_center</span>' },
-    natacao: { nome: "Natação", icone: '<span class="material-symbols-outlined">pool</span>' },
-    pilates: { nome: "Pilates de Solo", icone: '<svg width="35" height="35" viewBox="0 0 111 82" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M67.6894 8.91942C71.3032 8.91942 74.7982 10.3961 77.2841 12.971C80.0964 15.8798 81.4395 19.8498 80.972 23.8717C80.512 27.8639 78.3378 31.3737 75.006 33.5108C72.394 35.1879 69.6262 36.0783 67.0067 36.0783C63.7417 36.0783 60.8032 34.6907 58.5177 32.0713L58.5029 32.049L58.4806 32.0267L56.7665 30.0974L54.6071 27.6709L54.7036 27.6338L54.3623 23.4784C53.8948 17.8388 56.8704 12.6297 61.946 10.2106C63.764 9.34239 65.6933 8.90458 67.6968 8.90458M46.3927 30.6169L42.304 32.472C41.1093 33.0137 39.3729 33.1695 37.5401 33.3402C36.5977 33.4292 35.6182 33.5183 34.609 33.6667L27.5521 34.6907L30.4238 41.2207L37.3026 56.8853L39.4323 61.7383L44.3372 59.7273L67.63 50.1772C67.9194 50.0585 68.0901 50.0436 68.194 50.0436C68.6244 50.0436 69.1958 50.333 69.5965 50.5705L70.9544 51.3867L96.0875 66.5393C96.1617 66.5838 96.2062 66.6209 96.2285 66.6506L70.6502 55.0747L68.2979 54.0062L65.9901 55.1637L36.3751 69.9527C36.056 70.116 35.7295 70.1902 35.3585 70.1902C34.75 70.1902 34.045 69.9898 33.3104 69.604C32.7836 69.3294 32.2196 67.9121 31.6853 66.4874C28.6355 58.3249 24.5246 50.4889 19.449 43.1945C17.7645 40.7755 16.644 39.0317 16.3843 36.9391C16.1766 35.2398 16.7925 33.9561 18.2765 33.0211C19.4416 32.2865 19.9016 32.1603 20.4953 32.1529L41.8959 31.9006H42.8086L43.6694 31.5815L46.4149 30.5946M67.6894 3.48764C64.9661 3.48764 62.2057 4.08128 59.6011 5.3205C52.6481 8.63003 48.2775 15.9392 48.9379 23.9384L41.8143 26.4911L20.4136 26.7434C18.4027 26.7656 16.9483 27.4483 15.3603 28.4501C12.1101 30.4981 10.5073 33.8002 10.9748 37.6218C11.3904 40.9981 13.0525 43.5581 14.967 46.3111C19.731 53.1602 23.649 60.5733 26.5726 68.4019C27.5373 70.9768 28.4797 73.24 30.7652 74.4273C32.227 75.1916 33.7853 75.6294 35.3288 75.6294C36.5012 75.6294 37.6662 75.3771 38.7719 74.8206L68.3869 60.0316L94.1285 71.6817C94.8186 71.9934 95.531 72.1344 96.2211 72.1344C98.2914 72.1344 100.213 70.858 101.089 69.0178C102.343 66.3909 101.393 63.4079 98.8702 61.8867L73.7371 46.7341L72.3866 45.9179C71.0064 45.0868 69.6187 44.6044 68.1792 44.6044C67.3258 44.6044 66.4502 44.7751 65.5523 45.1387L42.2595 54.6888L35.3807 39.0242C38.4231 38.579 41.7029 38.6903 44.545 37.4066L52.7075 33.7038L54.4216 35.6331C57.8647 39.5808 62.3244 41.5027 67.0067 41.5027C70.6428 41.5027 74.4123 40.3451 77.9445 38.0744C87.7766 31.7596 89.4982 17.7795 81.1872 9.18656C77.618 5.49859 72.7131 3.48022 67.682 3.48022L67.6894 3.48764Z" fill="currentColor"/><path d="M12.9561 4.91235C17.3936 4.91235 20.9999 8.51869 20.9999 12.9561C20.9999 17.3936 17.3936 20.9999 12.9561 20.9999C8.51869 20.9999 4.91235 17.3936 4.91235 12.9561C4.91235 8.51869 8.51869 4.91235 12.9561 4.91235ZM12.9561 0C5.8028 0 0 5.8028 0 12.9561C0 20.1095 5.8028 25.9123 12.9561 25.9123C20.1095 25.9123 25.9123 20.1095 25.9123 12.9561C25.9123 5.8028 20.1095 0 12.9561 0Z" fill="currentColor"/><path d="M67.252 38.0003C58.8223 38.0003 51.9658 31.1438 51.9658 22.7141C51.9658 14.2845 58.8223 7.42798 67.252 7.42798C75.6816 7.42798 82.5381 14.2845 82.5381 22.7141C82.5381 31.1438 75.6816 38.0003 67.252 38.0003Z" fill="currentColor"/><path d="M67.2521 9.89145C74.3238 9.89145 80.0821 15.6423 80.0821 22.7214C80.0821 29.8006 74.3312 35.5514 67.2521 35.5514C60.173 35.5514 54.4221 29.8006 54.4221 22.7214C54.4221 15.6423 60.173 9.89145 67.2521 9.89145ZM67.2521 4.97168C57.4571 4.97168 49.5098 12.9116 49.5098 22.714C49.5098 32.5164 57.4497 40.4563 67.2521 40.4563C77.0545 40.4563 84.9944 32.5164 84.9944 22.714C84.9944 12.9116 77.0545 4.97168 67.2521 4.97168Z" fill="currentColor"/><path d="M106.714 77.6699H19.5977" stroke="currentColor" stroke-width="7.07" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
-    voleibol: { nome: "Voleibol", icone: '<span class="material-symbols-outlined">sports_volleyball</span>' }
-};
-
-// 2. Dicionário de Unidades
-const bancoUnidades = {
-    "todas": { nome: "Sesc PE", modalidades: Object.keys(bancoModalidades) }, // Opção para mostrar todas as modalidades
-    "araripina": { nome: "Sesc Ler Araripina", modalidades: ["futsal", "futebol_society", "ginastica", "musculacao"] },
-    "arcoverde": { nome: "Sesc Arcoverdee", modalidades: ["alongamento", "futsal", "ginastica", "musculacao", "pilates"] },
-    "belo-jardim": { nome: "Sesc Belo Jardim", modalidades: ["futsal", "musculacao", "natacao"] },
-    "bodoco": { nome: "Sesc Ler Bodocó", modalidades: ["futsal", "handebol", "hidroginastica", "natacao"] },
-    "buique": { nome: "Sesc Ler Buíque", modalidades: ["futsal", "hidroginastica", "natacao"] },
-    "caruaru": { nome: "Sesc Caruaru", modalidades: ["futsal", "futebol_society", "hidroginastica", "musculacao", "natacao"] },
-    "casa-amarela": { nome: "Sesc Casa Amarela", modalidades: ["ginastica", "hidroginastica", "movemente", "natacao", "pilates"] },
-    "floresta": { nome: "Sesc Floresta", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
-    "garanhuns": { nome: "Sesc Garanhuns", modalidades: ["futsal", "hidroginastica", "movemente", "musculacao", "natacao", "voleibol"] },
-    "goiana": { nome: "Sesc Goiana", modalidades: ["beach_tennis", "corrida", "funcional_kids", "futebol_campo", "futebol_society", "futsal", "ginastica", "hidroginastica", "judo", "musculacao", "natacao", "voleibol"] },
-    "petrolina": { nome: "Sesc Petrolina", modalidades: ["funcional_kids", "futsal", "ginastica", "hidroginastica", "movemente", "musculacao", "natacao"] },
-    "piedade": { nome: "Sesc Piedade", modalidades: ["alongamento", "beach_tennis", "funcional_kids", "futebol_society", "hidroginastica", "judo", "movemente", "musculacao", "natacao", "pilates"] },
-    "santa-rita": { nome: "Sesc Santa Rita", modalidades: ["alongamento", "ginastica", "pilates"] },
-    "santo-amaro": { nome: "Sesc Santo Amaro", modalidades: ["futsal", "musculacao", "voleibol"] },
-    "sao-lourenco-da-mata": { nome: "Sesc Ler São Lourenço da Mata", modalidades: ["ginastica", "movemente", "natacao"] },
-    "serra-talhada": { nome: "Sesc Serra Talhada", modalidades: ["futebol_society", "hidroginastica", "musculacao", "natacao"] },
-    "surubim": { nome: "Sesc Ler Surubim", modalidades: ["futebol_society", "hidroginastica", "natacao"] },
-    "triunfo": { nome: "Sesc CTL Triunfo", modalidades: ["natacao"] }
-};
-
-// 3. Estrutura do Aviso
-const htmlAviso = `
+        // 3. Estrutura do Aviso
+        const htmlAviso = `
     <div id="bloco-aviso">
         <img src="https://esportes.sescpe.com.br/wp-content/uploads/2026/05/Captura-de-tela-2026-05-11-102031.png">
         <div class="aviso-texto">
@@ -311,56 +315,57 @@ const htmlAviso = `
     </div>
 `;
 
-// 4. Lógica de Renderização
-const select = document.getElementById("unidadeSelect");
-const containerDinamico = document.getElementById("conteudo-dinamico");
+        // 4. Lógica de Renderização
+        const select = document.getElementById("unidadeSelect");
+        const containerDinamico = document.getElementById("conteudo-dinamico");
 
-function renderizarConteudo() {
-    const unidadeSelecionadaId = select.value;
-    const dadosUnidade = bancoUnidades[unidadeSelecionadaId];
+        function renderizarConteudo() {
+            const unidadeSelecionadaId = select.value;
+            const dadosUnidade = bancoUnidades[unidadeSelecionadaId];
 
-    containerDinamico.innerHTML = "";
+            containerDinamico.innerHTML = "";
 
-    if (dadosUnidade && dadosUnidade.modalidades.length > 0) {
-        
-        let htmlModalidades = `
+            if (dadosUnidade && dadosUnidade.modalidades.length > 0) {
+
+                let htmlModalidades = `
             <div id="bloco-dinamico">
                 <h2>As modalidades disponíveis no ${dadosUnidade.nome} são:</h2>
                 <div class="lista-modalidades">
         `;
 
-        dadosUnidade.modalidades.forEach((modKey, index) => {
-            const mod = bancoModalidades[modKey];
-            
-            htmlModalidades += `
+                dadosUnidade.modalidades.forEach((modKey, index) => {
+                    const mod = bancoModalidades[modKey];
+
+                    htmlModalidades += `
                 <div class="item">
                     ${mod.icone}
                     <span>${mod.nome}</span>
                 </div>
             `;
 
-            if (index < dadosUnidade.modalidades.length - 1) {
-                htmlModalidades += `<div class="divisor"></div>`;
+                    if (index < dadosUnidade.modalidades.length - 1) {
+                        htmlModalidades += `<div class="divisor"></div>`;
+                    }
+                });
+
+                htmlModalidades += `</div></div>`;
+                containerDinamico.innerHTML = htmlModalidades;
+
+            } else {
+                containerDinamico.innerHTML = htmlAviso;
             }
-        });
 
-        htmlModalidades += `</div></div>`;
-        containerDinamico.innerHTML = htmlModalidades;
+            // Força o scroll voltar para o começo quando trocar de unidade
+            const lista = document.querySelector('.lista-modalidades');
+            if (lista) lista.scrollLeft = 0;
+        }
 
-    } else {
-        containerDinamico.innerHTML = htmlAviso;
-    }
-    
-    // Força o scroll voltar para o começo quando trocar de unidade
-    const lista = document.querySelector('.lista-modalidades');
-    if(lista) lista.scrollLeft = 0;
-}
+        // 5. Iniciar
+        select.addEventListener("change", renderizarConteudo);
+        renderizarConteudo();
 
-// 5. Iniciar
-select.addEventListener("change", renderizarConteudo);
-renderizarConteudo();
-
-</script>
+    </script>
 
 </body>
+
 </html>
